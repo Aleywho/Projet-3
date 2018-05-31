@@ -2,8 +2,17 @@
 
 namespace App\config;
 
+use App\src\controller\HomeController;
+
 class Router
 {
+
+   private $homeController;
+    public function __construct()
+    {
+        $this->homeController = new HomeController();
+    }
+
     public function start()
     {
         try{
@@ -18,7 +27,7 @@ class Router
                 }
             }
             else{
-                require '../templates/home.php';
+                $this->homeController->index();
             }
         }
         catch (\Exception $e)
