@@ -9,4 +9,15 @@ class HomeController
         $articles = $article->getArticles();
         require '../templates/home.php';
     }
+
+    function addComment($postId, $author, $comment)
+    {
+        $affectedLines = addComment($postId, $author, $comment);
+
+        if ($affectedLines === false) {
+            die('Impossible d\'ajouter le commentaire !');
+        } else {
+            header('Location: index.php?action=post&id=' . $postId);
+        }
+    }
 }

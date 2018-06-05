@@ -26,6 +26,16 @@ class Router
                     echo 'page inconnue';
                 }
             }
+            if(isset($_GET['route'] ))
+            {
+                if($_GET['route']== 'addComment') {
+                    $id = $_GET['id'];
+                    require '../templates/single.php';
+                }
+                else{
+                    echo'identifiant inconnue';
+                }
+            }
             else{
                 $this->homeController->index();
             }

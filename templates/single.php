@@ -48,9 +48,9 @@
         
         <?php
 
-$article = new \App\src\DAO\ArticleDAO();
-$articles = $article->getArticle($_GET['id']);
-$data = $articles->fetch();
+    $article = new \App\src\DAO\ArticleDAO();
+    $articles = $article->getArticle($_GET['id']);
+    $data = $articles->fetch();
 ?>
         <div class="text-left">
             <h2><?= $data['title'];?></h2>
@@ -61,6 +61,8 @@ $data = $articles->fetch();
         <a href="index.php">Retour à l'accueil</a>
         <div id="comments" class="text-left" style="margin-left: 50px">
             <h3>Commentaires</h3>
+
+
             <?php
             $articles->closeCursor();
             $comment = new\App\src\DAO\CommentDAO();
@@ -68,9 +70,32 @@ $data = $articles->fetch();
             while($datas = $comments->fetch())
             {
                 ?>
+                </div>
+                <div class="text-left">
                 <h4><?= $datas['pseudo'];?></h4>
                 <p><?= $datas['content'];?></p>
                 <p>Posté le <?= $datas['date_added'];?></p>
+            <?php
+            $Post = new \App\src\DAO\PostDAO();
+            $Posts = $Post->getPosts($_GET['id']);
+        $data = $Posts->fetch()
+
+                ?>
+
+        <div class="text-left">
+            <div id="comments" class="text-left" style="margin-left: 50px">
+
+            <label for="author">Auteur</label><br/>
+            <input type="text" id="author" name="author" />
+        </div>
+        <div>
+            <label for="comment">Commentaire</label><br/>
+            <textarea id="comment" name="comment"></textarea>
+        </div>
+        <div>
+            <input type="submit" />
+        </div>
+        </form>
                 <?php
             }
             $comments->closeCursor();
