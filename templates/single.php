@@ -60,50 +60,51 @@
         </div>
         <a href="index.php">Retour à l'accueil</a>
         <div id="comments" class="text-left" style="margin-left: 50px">
-            <h3>Commentaires</h3>
+
+            <h3>Poster votre commentaire</h3>
+            <?php
+    $articles->closeCursor();
+    $Post = new \App\src\DAO\PostDAO();
+    $Posts = $Post->getPosts($_GET['id']);
+    $data = $Posts->fetch();
+
+    ?>
+
+            <div class="text-left">
+                <label for="author">Auteur</label><br/>
+                <input type="text" id="author" name="author"/>
+            </div>
+            <div>
+                <label for="comment">Commentaire</label><br/>
+                <textarea id="comment" name="comment"></textarea>
+            </div>
+            <div>
+                <input type="submit"/>
+            </div>
+
+
+
+        <h3>Commentaires</h3>
 
 
             <?php
-            $articles->closeCursor();
+            $Posts->closeCursor();
             $comment = new\App\src\DAO\CommentDAO();
             $comments = $comment->getCommentsFromArticle($_GET['id']);
             while($datas = $comments->fetch())
             {
-                ?>
-                </div>
-                <div class="text-left">
-                <h4><?= $datas['pseudo'];?></h4>
-                <p><?= $datas['content'];?></p>
-                <p>Posté le <?= $datas['date_added'];?></p>
-            <?php
-            $Post = new \App\src\DAO\PostDAO();
-            $Posts = $Post->getPosts($_GET['id']);
-        $data = $Posts->fetch()
-
-                ?>
-
-        <div class="text-left">
-            <div id="comments" class="text-left" style="margin-left: 50px">
-
-            <label for="author">Auteur</label><br/>
-            <input type="text" id="author" name="author" />
-        </div>
-        <div>
-            <label for="comment">Commentaire</label><br/>
-            <textarea id="comment" name="comment"></textarea>
-        </div>
-        <div>
-            <input type="submit" />
-        </div>
-        </form>
-                <?php
-            }
-            $comments->closeCursor();
             ?>
+
+            <h4><?= $datas['pseudo']; ?></h4>
+            <p><?= $datas['content']; ?></p>
+            <p>Posté le <?= $datas['date_added']; ?></p>
+
+        <?php
+        }
+        $comments->closeCursor();
+        ?>
+
         </div>
-
-
-
 </div><!-- /.container -->
 
 
