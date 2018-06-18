@@ -1,6 +1,11 @@
 <?php
+
 namespace App\src\controller;
+
 use App\src\DAO\ArticleDAO;
+use App\src\DAO\CommentDAO;
+
+
 class HomeController
 {
     public function index()
@@ -10,14 +15,22 @@ class HomeController
         require '../templates/home.php';
     }
 
-    function addComment($postId, $author, $comment)
+    public function addComment($id)
     {
-        $affectedLines = addComment($postId, $author, $comment);
-
-        if ($affectedLines === false) {
-            die('Impossible d\'ajouter le commentaire !');
-        } else {
-            header('Location: index.php?action=post&id=' . $postId);
-        }
+        $commentDAO = new CommentDAO();
+        $commentDAO->addComment($id);
+        header("Location: ../public/index.php?route=article&id=$id");
     }
+
+    public function getComments()
+    {
+
+        $comment = new CommentDAO();
+        $comments = $comment->getCommentsFromArticle();
+        require '..templates/single.php';
+
+    }
+    public function register(){
+        require "../templates/register.php";
+}
 }

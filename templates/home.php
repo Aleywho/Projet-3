@@ -4,14 +4,13 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta name="description" content="Mon super blog">
-    <meta name="author" content="Karim">
+    <meta name="author" content="Alexandre">
     <link rel="icon" href="http://getbootstrap.com/favicon.ico">
 
     <title>Mon blog</title>
 
     <!-- Bootstrap core CSS -->
-    <link href="http://getbootstrap.com/dist/css/bootstrap.min.css" rel="stylesheet">
-
+    <link href="../../dist/css/bootstrap.min.css" rel="stylesheet">
     <!-- Custom styles for this template -->
     <link href="../public/css/starter-template.css" rel="stylesheet">
 </head>
@@ -27,12 +26,12 @@
     <div class="collapse navbar-collapse" id="navbarsExampleDefault">
         <ul class="navbar-nav mr-auto">
             <li class="nav-item active">
-                <a class="nav-link" href="#">Accueil <span class="sr-only">(current)</span></a>
+                <a class="nav-link" href="index.php">Accueil <span class="sr-only"></span></a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="#">Articles</a>
-            </li>
-        </ul>
+                <a class="nav-link" href="index.php">Articles</a>
+            <li class="nav-item">
+                <a class="nav-link" href="index.php?route=register">S'inscrire</a>
         <form class="form-inline my-2 my-lg-0">
             <input class="form-control mr-sm-2" type="text" placeholder="Rechercher" aria-label="Search">
             <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Rechercher</button>

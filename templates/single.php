@@ -4,7 +4,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta name="description" content="Mon super blog">
-    <meta name="author" content="Karim">
+    <meta name="author" content="Alexandre">
     <link rel="icon" href="http://getbootstrap.com/favicon.ico">
 
     <title>Mon blog</title>
@@ -27,12 +27,14 @@
     <div class="collapse navbar-collapse" id="navbarsExampleDefault">
         <ul class="navbar-nav mr-auto">
             <li class="nav-item active">
-                <a class="nav-link" href="#">Accueil <span class="sr-only">(current)</span></a>
+                <a class="nav-link" href="index.php">Accueil <span class="sr-only"></span></a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="#">Articles</a>
+                <a class="nav-link" href="index.php">Articles</a>
             </li>
-        </ul>
+            <li class="nav-item">
+                <a class="nav-link" href="register.php">S'inscrire</a>
+            </li>
         <form class="form-inline my-2 my-lg-0">
             <input class="form-control mr-sm-2" type="text" placeholder="Rechercher" aria-label="Search">
             <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Rechercher</button>
@@ -45,7 +47,7 @@
     <div class="starter-template">
         <h1>Mon blog</h1>
         <p class="lead">En construction</p>
-        
+
         <?php
 
     $article = new \App\src\DAO\ArticleDAO();
@@ -69,7 +71,7 @@
     $data = $Posts->fetch();
 
     ?>
-
+<form method='POST' action="../public/index.php?route=addComment" >
             <div class="text-left">
                 <label for="author">Auteur</label><br/>
                 <input type="text" id="author" name="author"/>
@@ -81,7 +83,7 @@
             <div>
                 <input type="submit"/>
             </div>
-
+            </form>
 
 
         <h3>Commentaires</h3>

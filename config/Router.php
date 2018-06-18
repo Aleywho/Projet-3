@@ -22,18 +22,18 @@ class Router
                     $id = $_GET['id'];
                     require '../templates/single.php';
                 }
-                else{
-                    echo 'page inconnue';
-                }
-            }
-            if(isset($_GET['route'] ))
-            {
-                if($_GET['route']== 'addComment') {
+
+
+                elseif($_GET['route']== 'addComment') {
                     $id = $_GET['id'];
-                    require '../templates/single.php';
+                    $this->homeController->addComment($id);
                 }
+                elseif($_GET['route']== 'register') {
+                    $this->homeController->register();
+                }
+
                 else{
-                    echo'identifiant inconnue';
+                    echo 'erreur';
                 }
             }
             else{
