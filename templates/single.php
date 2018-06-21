@@ -33,7 +33,7 @@
                 <a class="nav-link" href="index.php">Articles</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="register.php">S'inscrire</a>
+                <a class="nav-link" href="index.php?route=register">S'inscrire</a>
             </li>
         <form class="form-inline my-2 my-lg-0">
             <input class="form-control mr-sm-2" type="text" placeholder="Rechercher" aria-label="Search">
@@ -71,14 +71,14 @@
     $data = $Posts->fetch();
 
     ?>
-<form method='POST' action="../public/index.php?route=addComment" >
+<form method='POST' action="../public/index.php?route=addComment&id=<?=$_GET['id'];?>">
             <div class="text-left">
                 <label for="author">Auteur</label><br/>
-                <input type="text" id="author" name="author"/>
+                <input type="text" id="author" name="pseudo"/>
             </div>
             <div>
                 <label for="comment">Commentaire</label><br/>
-                <textarea id="comment" name="comment"></textarea>
+                <textarea id="comment" name="content"></textarea>
             </div>
             <div>
                 <input type="submit"/>

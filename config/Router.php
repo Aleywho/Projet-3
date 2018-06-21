@@ -25,8 +25,11 @@ class Router
 
 
                 elseif($_GET['route']== 'addComment') {
+                    var_dump($_GET, $_POST);
                     $id = $_GET['id'];
-                    $this->homeController->addComment($id);
+                    $pseudo = $_POST['pseudo'];
+                    $content = $_POST['content'];
+                    $this->homeController->addComment($id, $content, $pseudo);
                 }
                 elseif($_GET['route']== 'register') {
                     $this->homeController->register();
