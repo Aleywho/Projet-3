@@ -8,8 +8,18 @@ class CommentDAO extends DAO
 		$result = $this->sql($sql, [$id]);
         return $result;
 	}
-	public function addComment($id, $pseudo , $content){
+	public function addComment($id, $pseudo , $content)
+    {
         $sql = 'INSERT INTO comment (pseudo, content, date_added, article_id) VALUES (?, ?, NOW(), ?) ';
         $this->sql($sql, [$pseudo, $content, $id]);
     }
+        public function editComment($newComment, $commentID)
+        {
+            $db = $this->dbConnect();
+            $editcomment = $db->prepare('UPDATE comments SET comment = ? WHERE id=?');
+            $affectedComment = $editcomment->execute(array($newComment, $commentID));
+
+            return $affectedComment;
+        }
+
 }

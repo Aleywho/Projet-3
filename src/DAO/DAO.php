@@ -32,6 +32,14 @@ class DAO
 
         return $affectedLines;
     }
+    function AddArticle($id,$author, $content)
+    {
+        $db = dbConnect();
+        $article = $db->prepare('INSERT INTO article (id, author, content, comment_date) VALUES(?, ?, ?, NOW())');
+        $affectedLines = $article->execute(array($id,$author, $content));
+
+        return $affectedLines;
+    }
 private
 function getConnection()
 {

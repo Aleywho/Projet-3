@@ -29,9 +29,11 @@
                 <a class="nav-link" href="index.php">Accueil <span class="sr-only"></span></a>
             </li>
             <li class="nav-item">
+
                 <a class="nav-link" href="index.php">Articles</a>
             <li class="nav-item">
                 <a class="nav-link" href="index.php?route=register">S'inscrire</a>
+
         <form class="form-inline my-2 my-lg-0">
             <input class="form-control mr-sm-2" type="text" placeholder="Rechercher" aria-label="Search">
             <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Rechercher</button>
@@ -45,7 +47,12 @@
         <h1>Mon blog</h1>
         <p class="lead">En construction</p>
 
+        <a href="index.php?route=addArticle">Ajouter un article </a>
+
+
+                <h2>Mes Articles</h2>
         <?php
+
         $article = new App\src\DAO\ArticleDAO();
         $articles = $article->getArticles();
         while( $data = $articles->fetch())
@@ -58,13 +65,15 @@
                 <p>Créé le <?= $data['date_added'];?></p>
             </div>
             <br>
-            <?php
+        <?php
         }
         $articles->closeCursor();
         ?>
-    </div>
 
+    </div>
 </div>
+
+
 
 <!-- Bootstrap core JavaScript
 ================================================== -->

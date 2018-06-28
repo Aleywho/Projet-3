@@ -30,12 +30,12 @@
                 <a class="nav-link" href="index.php">Accueil <span class="sr-only"></span></a>
             </li>
             <li class="nav-item">
+
                 <a class="nav-link" href="index.php">Articles</a>
-            </li>
             <li class="nav-item">
                 <a class="nav-link" href="index.php?route=register">S'inscrire</a>
-            </li>
-        <form class="form-inline my-2 my-lg-0">
+
+                <form class="form-inline my-2 my-lg-0">
             <input class="form-control mr-sm-2" type="text" placeholder="Rechercher" aria-label="Search">
             <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Rechercher</button>
         </form>
@@ -49,7 +49,6 @@
         <p class="lead">En construction</p>
 
         <?php
-
     $article = new \App\src\DAO\ArticleDAO();
     $articles = $article->getArticle($_GET['id']);
     $data = $articles->fetch();
@@ -77,13 +76,14 @@
                 <input type="text" id="author" name="pseudo"/>
             </div>
             <div>
-                <label for="comment">Commentaire</label><br/>
-                <textarea id="comment" name="content"></textarea>
+                <label for="content">Commentaire</label><br/>
+                <textarea id="content" name="content"></textarea>
             </div>
             <div>
                 <input type="submit"/>
             </div>
             </form>
+
 
 
         <h3>Commentaires</h3>

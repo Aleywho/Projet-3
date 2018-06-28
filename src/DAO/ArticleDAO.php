@@ -16,4 +16,10 @@ class ArticleDAO extends DAO
         $result = $this->sql($sql, [$idArt]);
         return $result;
     }
+            public function postArticle($title, $content, $author){
+             $sql = 'INSERT INTO article (title, content, author, date_added ) VALUES (?, ?,?, NOW()) ';
+        $this->sql($sql, [$title, $content, $author]);
+
+    }
+
 }
