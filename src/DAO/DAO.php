@@ -24,6 +24,12 @@ class DAO
         return $affectedLines;
 
 }
+    function editComment($newContent, $id ){
+        $db = dbConnect();
+        $editComment = $db->prepare('UPDATE comment SET comment = ? WHERE id=?');
+        $affectedLines = $editComment->execute(array($newContent, $id) );
+        return $affectedLines;
+    }
     function addComment($id, $pseudo , $content)
     {
         $db = dbConnect();

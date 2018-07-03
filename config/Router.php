@@ -20,8 +20,8 @@ class Router
                 if ($_GET['route'] === 'article') {
                     $id = $_GET['id'];
                     require '../templates/single.php';
-                } elseif ($_GET['route'] == 'addComment') {
 
+                } elseif ($_GET['route'] == 'addComment') {
                     $id = $_GET['id'];
                     $pseudo = $_POST['pseudo'];
                     $content = $_POST['content'];
@@ -39,8 +39,13 @@ class Router
                     }
                     $this->homeController->addArticle();
 
-                } elseif ($_GET['route'] == 'edit'){
-                    $id = $_GET['id'];
+                } elseif ($_GET['route'] == 'editComment'){
+                    if (isset ($_POST['submit'])){
+                        $newContent = $_POST['newContent'];
+                        $id = $_GET['id'];
+                        $this ->homeController->editComment($newContent, $id);
+                    }
+                    $this->homeController->postEdit();
             }
                 else{
                     echo 'erreur';

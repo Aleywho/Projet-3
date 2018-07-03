@@ -97,9 +97,9 @@
             {
             ?>
 
-            <h4><?= $datas['pseudo']; ?></h4>
+            <h4><?= $datas['pseudo']; ?></h4><a href="index.php?route=editComment&id=<?=$_GET['id'];?>">Modifier</a>
             <p><?= $datas['content']; ?></p>
-            <p>Posté le <?= $datas['date_added']; ?></p>
+                <p>Posté le <?= $datas['date_added']; ?></p>
 
         <?php
         }

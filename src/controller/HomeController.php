@@ -30,7 +30,15 @@ class HomeController
         $ArticleDAO->postArticle($title, $content, $author);
       header ("location:../public/index.php?route=addArticle" );
     }
+    public function editComment ($newContent, $id){
+        $editDAO = new CommentDAO();
+        $editDAO ->editComment($newContent, $id);
+        header ("location:../public/index.php?route=editComment&id=$id");
 
+}
+    public function postEdit (){
+        require'../templates/edit_comment.php';
+    }
     public function getComments()
     {
 
