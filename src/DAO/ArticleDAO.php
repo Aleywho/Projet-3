@@ -21,5 +21,8 @@ class ArticleDAO extends DAO
         $this->sql($sql, [$title, $content, $author]);
 
     }
-
+    public function editArticle($content, $id){
+        $sql = 'UPDATE article SET content = ? WHERE id=?';
+        $this ->sql($sql, [$content , $id]);
+    }
 }

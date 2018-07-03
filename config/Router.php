@@ -46,7 +46,15 @@ class Router
                         $this ->homeController->editComment($newContent, $id);
                     }
                     $this->homeController->postEdit();
-            }
+
+            }elseif ($_GET['route'] == 'editArticle'){
+                    if (isset ($_POST['submit'])){
+                        $content = $_POST['content'];
+                        $id = $_GET['id'];
+                        $this ->homeController->editArticle($content, $id);
+                    }
+                    $this->homeController->postEditA();
+                }
                 else{
                     echo 'erreur';
                 }

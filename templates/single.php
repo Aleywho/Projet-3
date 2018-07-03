@@ -54,6 +54,7 @@
     $data = $articles->fetch();
 ?>
         <div class="text-left">
+            <a href="index.php?route=editArticle&id=<?=$_GET['id'];?>">Modifier</a>
             <h2><?= $data['title'];?></h2>
             <p><?= $data['content'];?></p>
             <p><?= $data['author'];?></p>
@@ -63,6 +64,9 @@
         <div id="comments" class="text-left" style="margin-left: 50px">
 
             <h3>Poster votre commentaire</h3>
+
+
+
             <?php
     $articles->closeCursor();
     $Post = new \App\src\DAO\PostDAO();

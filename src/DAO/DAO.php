@@ -14,7 +14,12 @@ class DAO
 
         return $this->connection;
     }
-
+    function editArticle($content, $id){
+        $db = dbConnect();
+        $editComment = $db->prepare('UPDATE article SET content = ? WHERE id=?');
+        $affectedLines = $editComment->execute(array($content, $id) );
+        return $affectedLines;
+    }
     function postComment($postId, $author, $comment)
     {
         $db = dbConnect();

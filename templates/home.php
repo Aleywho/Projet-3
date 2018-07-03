@@ -58,6 +58,7 @@
         while( $data = $articles->fetch())
         {
             ?>
+
             <div class="text-left">
                 <h2><a href="index.php?route=article&id=<?= $data['id'];?>"><?= $data['title'];?></a></h2>
                 <p><?= $data['content'];?></p>
