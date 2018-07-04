@@ -54,6 +54,8 @@ class Router
                         $this ->homeController->editArticle($content, $id);
                     }
                     $this->homeController->postEditA();
+                }elseif ($_GET['route'] == 'deleteArticle'){
+                    $this->homeController->deleteArticle($title, $content, $author);
                 }
                 else{
                     echo 'erreur';

@@ -20,6 +20,12 @@ class DAO
         $affectedLines = $editComment->execute(array($content, $id) );
         return $affectedLines;
     }
+    function deleteArticle($title, $content, $author){
+        $db = dbConnect();
+        $deleteArticle = $db-> prepare('DELETE FROM article WHERE title =?, content = ? , author = ? ');
+        $affectedLines = $deleteArticle->execute(array ($title, $content, $author));
+        return $affectedLines;
+    }
     function postComment($postId, $author, $comment)
     {
         $db = dbConnect();

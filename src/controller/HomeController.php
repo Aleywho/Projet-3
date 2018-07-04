@@ -41,6 +41,11 @@ class HomeController
         header ("location:../public/index.php?route=editComment&id=$id");
 
 }
+    public function deleteArticle($title, $content, $author){
+        $deleteArt = new ArticleDAO();
+        $deleteArt->deleteArticle($title, $content, $author);
+        header("location:../public/index.php?route=deleteArticle&id");
+    }
     public function editArticle($content, $id){
         $editArt = new ArticleDAO();
         $editArt->editArticle($content, $id);
