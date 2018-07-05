@@ -49,12 +49,19 @@ class Router
 
             }elseif ($_GET['route'] == 'editArticle'){
                     if (isset ($_POST['submit'])){
+                        var_dump($_POST);
                         $content = $_POST['content'];
+                        $title = $_POST['title'];
                         $id = $_GET['id'];
-                        $this ->homeController->editArticle($content, $id);
+
+                        $this ->homeController->editArticle($content, $title, $id);
                     }
                     $this->homeController->postEditA();
                 }elseif ($_GET['route'] == 'deleteArticle'){
+                    if (isset ($_POST['delete']))
+                    $title = $_POST['title'];
+                    $content = $_POST['content'];
+                    $author = $_POST['author'];
                     $this->homeController->deleteArticle($title, $content, $author);
                 }
                 else{

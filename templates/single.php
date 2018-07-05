@@ -75,6 +75,7 @@
 
     ?>
 <form method='POST' action="../public/index.php?route=addComment&id=<?=$_GET['id'];?>">
+
             <div class="text-left">
                 <label for="author">Auteur</label><br/>
                 <input type="text" id="author" name="pseudo"/>

@@ -46,9 +46,9 @@ class HomeController
         $deleteArt->deleteArticle($title, $content, $author);
         header("location:../public/index.php?route=deleteArticle&id");
     }
-    public function editArticle($content, $id){
+    public function editArticle($content, $title, $id){
         $editArt = new ArticleDAO();
-        $editArt->editArticle($content, $id);
+        $editArt->editArticle($content, $title, $id);
         header("location:../public/index.php?route=editArticle&id=$id");
     }
    public function postEditA(){

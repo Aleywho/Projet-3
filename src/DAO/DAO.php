@@ -14,10 +14,10 @@ class DAO
 
         return $this->connection;
     }
-    function editArticle($content, $id){
+    function editArticle($content, $title, $id){
         $db = dbConnect();
-        $editComment = $db->prepare('UPDATE article SET content = ? WHERE id=?');
-        $affectedLines = $editComment->execute(array($content, $id) );
+        $editComment = $db->prepare('UPDATE article SET content = ? title = ? WHERE id=?');
+        $affectedLines = $editComment->execute(array($content, $title, $id) );
         return $affectedLines;
     }
     function deleteArticle($title, $content, $author){
