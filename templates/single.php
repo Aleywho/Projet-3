@@ -49,13 +49,13 @@
         <p class="lead">En construction</p>
 
         <?php
-    $article = new \App\src\DAO\ArticleDAO();
-    $articles = $article->getArticle($_GET['id']);
+
     $data = $articles->fetch();
 ?>
         <div class="text-left">
-            <a href="index.php?route=editArticle&id=<?=$_GET['id'];?>">Modifier</a>
+
             <h2><?= $data['title'];?></h2>
+            <a href="index.php?route=editArticle&id=<?=$_GET['id'];?>">Modifier</a>
             <p><?= $data['content'];?></p>
             <p><?= $data['author'];?></p>
             <p>Créé le <?= $data['date_added'];?></p>
@@ -66,14 +66,6 @@
             <h3>Poster votre commentaire</h3>
 
 
-
-            <?php
-    $articles->closeCursor();
-    $Post = new \App\src\DAO\PostDAO();
-    $Posts = $Post->getPosts($_GET['id']);
-    $data = $Posts->fetch();
-
-    ?>
 <form method='POST' action="../public/index.php?route=addComment&id=<?=$_GET['id'];?>">
 
             <div class="text-left">
@@ -95,14 +87,14 @@
 
 
             <?php
-            $Posts->closeCursor();
-            $comment = new\App\src\DAO\CommentDAO();
-            $comments = $comment->getCommentsFromArticle($_GET['id']);
+
+
             while($datas = $comments->fetch())
             {
             ?>
 
-            <h4><?= $datas['pseudo']; ?></h4><a href="index.php?route=editComment&id=<?=$_GET['id'];?>">Modifier</a>
+            <h4><?= $datas['pseudo']; ?></h4> <a href="index.php?route=editComment&id=<?=$_GET['id'];?>">Modifier</a>
+
             <p><?= $datas['content']; ?></p>
                 <p>Posté le <?= $datas['date_added']; ?></p>
 

@@ -21,39 +21,7 @@ class HomeController
         $commentDAO->addComment($id, $content, $pseudo);
         header("Location: ../public/index.php?route=article&id=$id");
     }
-    public function addArticle(){
-        require '../templates/add_article.php';
-    }
-    public function postArticle($title, $content, $author)
-    {
-        $ArticleDAO = new ArticleDAO();
-        $ArticleDAO->postArticle($title, $content, $author);
-      header ("location:../public/index.php?route=addArticle" );
-    }
 
-    public function postEdit (){
-        require'../templates/edit_comment.php';
-    }
-
-    public function editComment ($newContent, $id){
-        $editDAO = new CommentDAO();
-        $editDAO ->editComment($newContent, $id );
-        header ("location:../public/index.php?route=editComment&id=$id");
-
-}
-    public function deleteArticle($title, $content, $author){
-        $deleteArt = new ArticleDAO();
-        $deleteArt->deleteArticle($title, $content, $author);
-        header("location:../public/index.php?route=deleteArticle&id");
-    }
-    public function editArticle($content, $title, $id){
-        $editArt = new ArticleDAO();
-        $editArt->editArticle($content, $title, $id);
-        header("location:../public/index.php?route=editArticle&id=$id");
-    }
-   public function postEditA(){
-        require '../templates/edit_article.php';
-   }
     public function getComments()
     {
 
@@ -62,7 +30,11 @@ class HomeController
         require '../templates/single.php';
 
     }
-    public function register(){
-        require "../templates/register.php";
-}
+    public function article($id){
+        $article = new ArticleDAO();
+        $articles = $article->getArticle($id);
+        $comment = new CommentDAO();
+        $comments = $comment->getCommentsFromArticle($_GET['id']);
+        require '../templates/single.php';
+    }
 }

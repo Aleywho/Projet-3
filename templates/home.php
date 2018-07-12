@@ -61,9 +61,9 @@
 
             <div class="text-left">
                 <h2><a href="index.php?route=article&id=<?= $data['id'];?>"><?= $data['title'];?></a></h2>
-                <p><?= $data['content'];?></p>
-                <p><?= $data['author'];?></p>
-                <p>Créé le <?= $data['date_added'];?></p>
+                    <p><?= $data['content'];?></p>
+                    <p><?= $data['author'];?></p>
+                    <p>Créé le <?= $data['date_added'];?></p>
             </div>
             <br>
         <?php
