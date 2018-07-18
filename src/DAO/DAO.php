@@ -59,7 +59,7 @@ class DAO
     }
     function addMembers($pseudo, $password, $email){
         $db = dbConnect();
-        $member = $db ->prepare('INSERT INTO membres (pseudo, password, email, inscription_date) VALUES(:pseudo, :pass, :email, CURDATE())');
+        $member = $db ->prepare('INSERT INTO member (pseudo, password, email, inscription_date) VALUES(:pseudo, :pass, :email, CURDATE())');
         $affectedLines = $member->execute(array($pseudo, $password, $email));
         return $affectedLines;
     }

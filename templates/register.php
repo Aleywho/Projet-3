@@ -8,7 +8,7 @@
 
     <h1>S'inscrire</h1>
 
-    <form action="./admin_page.php" method="POST">
+    <form action="../public/index.php?route=admin_page" method="POST">
 
         <div class="form-group">
             <label for="">Pseudo</label>
