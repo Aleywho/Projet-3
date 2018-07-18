@@ -56,16 +56,24 @@ class Router
                         $content = $_POST['content'];
                         $title = $_POST['title'];
                         $id = $_GET['id'];
-
                         $this ->backController->editArticle($content, $title, $id);
                     }
                     $this->backController->postEditA();
-                }elseif ($_GET['route'] == 'deleteArticle'){
-                    if (isset ($_POST['delete']))
-                   $id = $_GET['id'];
-                    $this->backController->deleteArticle($id);
-                }
-                else{
+                }elseif ($_GET['route'] == 'deleteArticle') {
+                    if (isset ($_POST['delete'])) {
+                        $id = $_GET['id'];
+                        $this->backController->deleteArticle($id);
+                    }
+                    $this->backController->postDelete();
+                }elseif ($_GET['route'] == 'admin_page'){
+                    if (isset($_POST['submit'])){
+                        $pseudo = $_POST['pseudo'];
+                        $password = $_POST['password'];
+                        $email = $_POST['email'];
+                        $this->backController->addMembers($pseudo, $password, $email);
+                    }
+
+                }else{
                     echo 'erreur';
                 }
             }

@@ -20,10 +20,10 @@ class DAO
         $affectedLines = $editComment->execute(array($content, $title, $id) );
         return $affectedLines;
     }
-    function deleteArticle($title, $content, $author){
+    function deleteArticle($id){
         $db = dbConnect();
         $deleteArticle = $db-> prepare('DELETE FROM article WHERE title =?, content = ? , author = ? ');
-        $affectedLines = $deleteArticle->execute(array ($title, $content, $author));
+        $affectedLines = $deleteArticle->execute(array ($id));
         return $affectedLines;
     }
     function postComment($postId, $author, $comment)
@@ -55,6 +55,12 @@ class DAO
         $article = $db->prepare('INSERT INTO article (id, author, content, comment_date) VALUES(?, ?, ?, NOW())');
         $affectedLines = $article->execute(array($id,$author, $content));
 
+        return $affectedLines;
+    }
+    function addMembers($pseudo, $password, $email){
+        $db = dbConnect();
+        $member = $db ->prepare('INSERT INTO membres (pseudo, password, email, inscription_date) VALUES(:pseudo, :pass, :email, CURDATE())');
+        $affectedLines = $member->execute(array($pseudo, $password, $email));
         return $affectedLines;
     }
 private

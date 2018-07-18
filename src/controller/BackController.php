@@ -6,6 +6,7 @@ use App\src\DAO\ArticleDAO;
 use App\src\DAO\CommentDAO;
 
 
+
 class BackController
 {
 
@@ -31,10 +32,13 @@ class BackController
         header("location:../public/index.php?route=editComment&id=$id");
     }
 
-    public function deleteArticle($title, $content, $author){
+    public function deleteArticle($id){
         $deleteArt = new ArticleDAO();
-        $deleteArt->deleteArticle($title, $content, $author);
+        $deleteArt->deleteArticle($id);
         header("location:../public/index.php?route=deleteArticle&id");
+    }
+    public function postDelete(){
+        require '../templates/delete_Article.php';
     }
     public function editArticle($content, $title, $id){
         $editArt = new ArticleDAO();
@@ -47,5 +51,8 @@ class BackController
 
     public function register(){
         require "../templates/register.php";
+    }
+    public function addMembers($pseudo, $password, $email){
+
     }
 }

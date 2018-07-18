@@ -1,5 +1,6 @@
 <?php
 
+
     ?>
 
 
@@ -7,16 +8,16 @@
 
     <h1>S'inscrire</h1>
 
-    <form action="" method="POST">
+    <form action="./admin_page.php" method="POST">
 
         <div class="form-group">
             <label for="">Pseudo</label>
-            <input type="text" name="Username" class="form-control" required />
+            <input type="text" name="pseudo" class="form-control" required />
         </div>
 
         <div class="form-group">
             <label for="">Email</label>
-            <input type="email" name="Email" class="form-control" required />
+            <input type="email" name="email" class="form-control" required />
 
             <div class="form-group">
                 <label for="">Password</label>
