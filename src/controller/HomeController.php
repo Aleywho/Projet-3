@@ -4,6 +4,7 @@ namespace App\src\controller;
 
 use App\src\DAO\ArticleDAO;
 use App\src\DAO\CommentDAO;
+use App\src\DAO\MemberDAO;
 
 
 class HomeController
@@ -30,11 +31,25 @@ class HomeController
         require '../templates/single.php';
 
     }
-    public function article($id){
+
+    public function article($id)
+    {
         $article = new ArticleDAO();
         $articles = $article->getArticle($id);
         $comment = new CommentDAO();
         $comments = $comment->getCommentsFromArticle($_GET['id']);
         require '../templates/single.php';
+    }
+
+    public function addMember($pseudo, $password, $email)
+    {
+        $admin_page = new MemberDAO();
+        $admin_page->addMember($pseudo, $password, $email);
+        header("location:../public/index.php?route=addMember");
+    }
+
+    public function register()
+    {
+        require "../templates/register.php";
     }
 }

@@ -8,7 +8,7 @@
 
     <h1>S'inscrire</h1>
 
-    <form action="../public/index.php?route=admin_page" method="POST">
+    <form action="../public/index.php?route=addMember" method="POST">
 
         <div class="form-group">
             <label for="">Pseudo</label>
@@ -21,10 +21,11 @@
 
             <div class="form-group">
                 <label for="">Password</label>
-                <input type="password" name="Password" class="form-control" required/>
+                <input type="password" name="password" class="form-control" required/>
 
-                <button type="Submit" class="btn btn-primary"></button>
+                <button type="Submit" name="submit"class="btn btn-primary"></button>
 
-                <ul><a href="index.php">Retour à l'accueil</a></ul>
+                <a href="index.php">Retour à l'accueil</a>
+                <a href="index.php">Connexion </a>
             </div>
         </div>

@@ -2,6 +2,7 @@
 
 namespace App\src\controller;
 
+use App\src\DAO\addMembersDAO;
 use App\src\DAO\ArticleDAO;
 use App\src\DAO\CommentDAO;
 
@@ -9,7 +10,6 @@ use App\src\DAO\CommentDAO;
 
 class BackController
 {
-
 
     public function addArticle(){
         require '../templates/add_article.php';
@@ -48,11 +48,4 @@ class BackController
     public function postEditA(){
         require '../templates/edit_article.php';
     }
-
-    public function register(){
-        require "../templates/register.php";
     }
-    public function addMembers($pseudo, $password, $email){
-
-    }
-}

@@ -31,7 +31,7 @@ class Router
                     $this->homeController->addComment($id, $content, $pseudo);
 
                 } elseif ($_GET['route'] == 'register') {
-                    $this->backController->register();
+                    $this->homeController->register();
 
                 } elseif ($_GET['route'] == 'addArticle') {
                     if (isset ($_POST['submit'])){
@@ -65,12 +65,15 @@ class Router
                         $this->backController->deleteArticle($id);
                     }
                     $this->backController->postDelete();
-                }elseif ($_GET['route'] == 'admin_page'){
-                    if (isset($_POST['submit'])){
+
+                }elseif ($_GET['route'] == 'addMember'){
+                    var_dump($_POST);
+                    if (isset($_POST['submit'])) {
+                        var_dump($_POST);
                         $pseudo = $_POST['pseudo'];
                         $password = $_POST['password'];
                         $email = $_POST['email'];
-                        $this->backController->addMembers($pseudo, $password, $email);
+                        $this->homeController->addMember($pseudo, $password, $email);
                     }
 
                 }else{
