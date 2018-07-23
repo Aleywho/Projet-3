@@ -10,10 +10,11 @@ use App\src\DAO\CommentDAO;
 
 class BackController
 {
-
+//Ajout d'articles
     public function addArticle(){
         require '../templates/add_article.php';
     }
+    //poster des articles
     public function postArticle($title, $content, $author)
     {
         $ArticleDAO = new ArticleDAO();
@@ -24,7 +25,7 @@ class BackController
     public function postEdit (){
         require'../templates/edit_comment.php';
     }
-
+//editer les commentaires
     public function editComment ($newContent, $id)
     {
         $editDAO = new CommentDAO();

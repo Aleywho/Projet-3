@@ -41,15 +41,23 @@ class HomeController
         require '../templates/single.php';
     }
 
-    public function addMember($pseudo, $password, $email)
+    public function addMember($pseudo, $passhash, $email)
     {
         $admin_page = new MemberDAO();
-        $admin_page->addMember($pseudo, $password, $email);
+        $admin_page->addMember($pseudo, $passhash, $email);
         header("location:../public/index.php?route=addMember");
     }
 
     public function register()
     {
         require "../templates/register.php";
+
+    }
+    public function connectMember($pseudo, $password){
+
+        $connect = new MemberDAO();
+        $connect ->connectMember($pseudo, $password);
+
+        header("location:../public/index.php?route=connectMember");
     }
 }

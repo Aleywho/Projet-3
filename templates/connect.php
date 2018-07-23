@@ -1,18 +1,13 @@
 <?php
 
+?>
+<h1>Se connecter</h1>
 
-    ?>
-
-
-
-
-    <h1>S'inscrire</h1>
-
-    <form action="../public/index.php?route=addMember" method="POST">
+    <form action="../public/index.php?route=connectMember" method="POST">
 
         <div class="form-group">
             <label for="">Pseudo</label>
-            <input type="text" name="pseudo" class="form-control" required />
+            <input type="pseudo" name="pseudo" class="form-control" required />
         </div>
 
         <div class="form-group">
@@ -26,6 +21,6 @@
                 <button type="Submit" name="submit"class="btn btn-primary"></button>
 
                 <a href="index.php">Retour à l'accueil</a>
-                <a href="index.php?route=connectMember">Déjà connecté? </a>
+
             </div>
         </div>

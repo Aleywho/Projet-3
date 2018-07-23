@@ -71,9 +71,19 @@ class Router
                     if (isset($_POST['submit'])) {
                         var_dump($_POST);
                         $pseudo = $_POST['pseudo'];
-                        $password = $_POST['password'];
                         $email = $_POST['email'];
-                        $this->homeController->addMember($pseudo, $password, $email);
+                        $passhash = password_hash($_POST['password'], PASSWORD_DEFAULT);
+                        $this->homeController->addMember($pseudo, $passhash, $email);
+
+                    }elseif ($_GET['route']== 'connectMember') {
+                        var_dump($_POST);
+                        if (isset($_POST['connect'])) {
+                            var_dump($_POST);
+                            $pseudo = $_POST['pseudo'];
+                            $password = $_POST['password'];
+
+                            $this->homeController->connectMember($pseudo, $password) ;
+                        }
                     }
 
                 }else{
