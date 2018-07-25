@@ -54,10 +54,13 @@ class HomeController
 
     }
     public function connectMember($pseudo, $password){
-
         $connect = new MemberDAO();
         $connect ->connectMember($pseudo, $password);
+        header("location: ../public/index.php?route=connectMember");
 
-        header("location:../public/index.php?route=connectMember");
+    }
+    public function Connect(){
+
+        require '../public/connect.php';
     }
 }

@@ -26,7 +26,7 @@ class ArticleDAO extends DAO
         $this ->sql($sql, [$content, $title, $id]);
     }
     public function deleteArticle ($id){
-        $sql = 'DELETE FROM article WHERE title =?, content = ? , author = ? ';
+        $sql = 'DELETE FROM article WHERE id = ? ';
         $this ->sql($sql, [$id]);
     }
 }

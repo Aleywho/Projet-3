@@ -9,9 +9,10 @@ class MemberDAO extends DAO{
 
 
     public function  connectMember($pseudo, $password){
-        $sql = 'SELECT id , password FROM member WHERE pseudo = ?';
+        $sql = 'SELECT id, pseudo , password FROM member WHERE pseudo = ?';
         $result = $this->sql($sql, [$pseudo, $password]);
         return $result;
+
     }
 
 }

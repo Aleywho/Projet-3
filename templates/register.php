@@ -26,6 +26,7 @@
                 <button type="Submit" name="submit"class="btn btn-primary"></button>
 
                 <a href="index.php">Retour à l'accueil</a>
-                <a href="index.php?route=connectMember">Déjà connecté? </a>
+                <a href="connect.php">Déjà connecté? </a>
             </div>
         </div>
+

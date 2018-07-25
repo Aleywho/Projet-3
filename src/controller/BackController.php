@@ -2,7 +2,7 @@
 
 namespace App\src\controller;
 
-use App\src\DAO\addMembersDAO;
+
 use App\src\DAO\ArticleDAO;
 use App\src\DAO\CommentDAO;
 
@@ -10,21 +10,19 @@ use App\src\DAO\CommentDAO;
 
 class BackController
 {
-//Ajout d'articles
-    public function addArticle(){
-        require '../templates/add_article.php';
-    }
-    //poster des articles
+
+
+
     public function postArticle($title, $content, $author)
     {
         $ArticleDAO = new ArticleDAO();
         $ArticleDAO->postArticle($title, $content, $author);
         header ("location:../public/index.php?route=addArticle" );
     }
-
-    public function postEdit (){
-        require'../templates/edit_comment.php';
+    public function addArticle(){
+        require '../templates/add_article.php';
     }
+
 //editer les commentaires
     public function editComment ($newContent, $id)
     {
@@ -32,11 +30,13 @@ class BackController
         $editDAO->editComment($newContent, $id);
         header("location:../public/index.php?route=editComment&id=$id");
     }
-
+    public function postEdit (){
+        require'../templates/edit_comment.php';
+    }
     public function deleteArticle($id){
         $deleteArt = new ArticleDAO();
         $deleteArt->deleteArticle($id);
-        header("location:../public/index.php?route=deleteArticle&id");
+        header("location:../public/index.php?route=deleteArticle&id=$id");
     }
     public function postDelete(){
         require '../templates/delete_Article.php';

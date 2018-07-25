@@ -1,7 +1,7 @@
 <?php
 
 ?>
-    <h2>Connexion</h2>
+<h2>Connexion</h2>
 
 <form action="index.php?route=connectMember" method="post">
     <p><label for "pseudo"> Pseudo</label> : <input type="text" name="pseudo" id="pseudo" value=""></p>

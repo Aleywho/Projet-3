@@ -33,6 +33,8 @@
                 <a class="nav-link" href="index.php">Articles</a>
             <li class="nav-item">
                 <a class="nav-link" href="index.php?route=register">S'inscrire</a>
+            <li class="nav-item">
+                <a class="nav-link" href="index.php?route=connectMember">Se connecter</a>
 
                 <form class="form-inline my-2 my-lg-0">
             <input class="form-control mr-sm-2" type="text" placeholder="Rechercher" aria-label="Search">

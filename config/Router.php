@@ -61,6 +61,7 @@ class Router
                     $this->backController->postEditA();
                 }elseif ($_GET['route'] == 'deleteArticle') {
                     if (isset ($_POST['delete'])) {
+                        var_dump($_POST);
                         $id = $_GET['id'];
                         $this->backController->deleteArticle($id);
                     }
@@ -77,12 +78,12 @@ class Router
 
                     }elseif ($_GET['route']== 'connectMember') {
                         var_dump($_POST);
-                        if (isset($_POST['connect'])) {
+                        if (isset($_POST['submit'])) {
                             var_dump($_POST);
-                            $pseudo = $_POST['pseudo'];
                             $password = $_POST['password'];
+                            $pseudo = $_POST['pseudo'];
 
-                            $this->homeController->connectMember($pseudo, $password) ;
+                            $this->homeController->connectMember($pseudo, $password);
                         }
                     }
 
