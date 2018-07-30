@@ -1,13 +1,16 @@
-<?php
+<h2>Connexion</h2>
 
-?>
-    <h2>Connexion</h2>
+<form method='POST' action="../public/index.php?route=connectMember">
 
-<form action="index.php?route=connectMember" method="post">
-    <p><label for "pseudo"> Pseudo</label> : <input type="text" name="pseudo" id="pseudo" value=""></p>
-    <p><label for "password"> Mot de passe</label> : <input type="password" name="password"></p>
-    <p><input type="submit" ></p>
-</form>
+    <div class="form-group">
+        <label for="pseudo">Pseudo</label>
+        <input type="text" name="pseudo" id="pseudo" class="form-control" required/>
+    </div>
 
-<a href="index.php">Retour à l'accueil</a>
+    <div class="form-group">
+        <label for="passhash">Password</label>
+        <input type="password" name="passhash" id="passhash" class="form-control" required/>
 
+        <input type="submit" name="submit"/>
+
+    </div>

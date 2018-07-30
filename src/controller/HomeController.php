@@ -23,14 +23,7 @@ class HomeController
         header("Location: ../public/index.php?route=article&id=$id");
     }
 
-    public function getComments()
-    {
 
-        $comment = new CommentDAO();
-        $comments = $comment->getCommentsFromArticle();
-        require '../templates/single.php';
-
-    }
 
     public function article($id)
     {
@@ -53,14 +46,39 @@ class HomeController
         require "../templates/register.php";
 
     }
-    public function connectMember($pseudo, $password){
-        $connect = new MemberDAO();
-        $connect ->connectMember($pseudo, $password);
-        header("location: ../public/index.php?route=connectMember");
+
+    public function admin()
+    {
+        require '../templates/admin_page.php';
+    }
+
+    public function connectMember($pseudo, $passhash)
+    {
+        $MemberDAO = new MemberDAO();
+        $data = $MemberDAO->connectMember($pseudo, $passhash);
+
+
+        if (!$data[0]) {
+            header("location:../index.php?route=connect");
+        } else {
+            if ($data[1]) {
+                session_start();
+                $_SESSION['id'] = $resultat['id'];
+                $_SESSION['pseudo'] = $pseudo;
+                header("location:../index.php?route=admin");
+            } else {
+                header("location:../index.php?route=connect");
+            }
+
+        }
 
     }
-    public function Connect(){
 
-        require '../public/connect.php';
-    }
+        public
+        function connect()
+        {
+
+            require '../templates/connect.php';
+        }
+
 }

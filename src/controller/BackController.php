@@ -49,4 +49,5 @@ class BackController
     public function postEditA(){
         require '../templates/edit_article.php';
     }
+
     }
