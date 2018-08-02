@@ -64,7 +64,9 @@ class Router
                     if (isset ($_POST['delete'])) {
                         var_dump($_POST);
                         $id = $_GET['id'];
-                        $this->backController->deleteArticle($id);
+                        $content = $_POST['content'];
+                        $author = $_POST['author'];
+                        $this->backController->deleteArticle($id, $content, $author);
                     }
                     $this->backController->postDelete();
 
@@ -78,19 +80,22 @@ class Router
                         $this->homeController->addMember($pseudo, $passhash, $email);
 
                     }
+                } elseif ($_GET['route'] == 'connect') {
+                    $this->homeController->connect();
 
                 } elseif ($_GET['route'] == 'connectMember') {
                     var_dump($_POST);
                     if (isset($_POST['submit'])) {
                         var_dump($_POST);
 
-                        $passhash = $_POST['passhash'];
+                        $password = $_POST['password'];
                         $pseudo = $_POST['pseudo'];
-                        $this->homeController->connectMember($pseudo, $passhash);
+                        $this->homeController->connectMember($pseudo, $password);
                     }
 
-                } elseif ($_GET['route'] == 'connect') {
-                    $this->homeController->connect();
+
+                } elseif ($_GET['route'] == 'deconnect') {
+                    $this->homeController->deconnect();
 
                 } elseif ($_GET['route'] == 'admin') {
                     $this->homeController->admin();

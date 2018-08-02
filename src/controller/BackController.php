@@ -33,9 +33,9 @@ class BackController
     public function postEdit (){
         require'../templates/edit_comment.php';
     }
-    public function deleteArticle($id){
+    public function deleteArticle($id, $content, $author){
         $deleteArt = new ArticleDAO();
-        $deleteArt->deleteArticle($id);
+        $deleteArt->deleteArticle($id, $content, $author);
         header("location:../public/index.php?route=deleteArticle&id=$id");
     }
     public function postDelete(){

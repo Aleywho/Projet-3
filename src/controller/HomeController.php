@@ -24,7 +24,6 @@ class HomeController
     }
 
 
-
     public function article($id)
     {
         $article = new ArticleDAO();
@@ -38,6 +37,7 @@ class HomeController
     {
         $admin_page = new MemberDAO();
         $admin_page->addMember($pseudo, $passhash, $email);
+
         header("location:../public/index.php?route=addMember");
     }
 
@@ -47,16 +47,23 @@ class HomeController
 
     }
 
+    public
+    function connect()
+    {
+
+        require '../templates/connect.php';
+    }
+
     public function admin()
     {
         require '../templates/admin_page.php';
     }
 
-    public function connectMember($pseudo, $passhash)
+    public function connectMember($pseudo, $password)
     {
         $MemberDAO = new MemberDAO();
-        $data = $MemberDAO->connectMember($pseudo, $passhash);
-
+        $data = $MemberDAO->connectMember($pseudo, $password);
+        header("location:../index.php?route=connectMember");
 
         if (!$data[0]) {
             header("location:../index.php?route=connect");
@@ -74,11 +81,10 @@ class HomeController
 
     }
 
-        public
-        function connect()
-        {
 
-            require '../templates/connect.php';
-        }
+    public function deconnect()
+    {
 
+        require '../templates/deconnect.php';
+    }
 }

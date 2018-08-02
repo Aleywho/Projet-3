@@ -8,9 +8,9 @@
     </div>
 
     <div class="form-group">
-        <label for="passhash">Password</label>
-        <input type="password" name="passhash" id="passhash" class="form-control" required/>
+        <label for="password">Password</label>
+        <input type="password" name="password" id="password" class="form-control" required/>
 
-        <input type="submit" name="submit"/>
+        <input type="submit"  />
 
     </div>
