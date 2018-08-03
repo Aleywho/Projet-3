@@ -11,6 +11,6 @@
         <label for="password">Password</label>
         <input type="password" name="password" id="password" class="form-control" required/>
 
-        <input type="submit"  />
+        <input type="submit" name="submit" value="submit" />
 
     </div>

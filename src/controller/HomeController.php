@@ -54,33 +54,31 @@ class HomeController
         require '../templates/connect.php';
     }
 
-    public function admin()
-    {
-        require '../templates/admin_page.php';
-    }
 
     public function connectMember($pseudo, $password)
     {
         $MemberDAO = new MemberDAO();
         $data = $MemberDAO->connectMember($pseudo, $password);
-        header("location:../index.php?route=connectMember");
-
-        if (!$data[0]) {
-            header("location:../index.php?route=connect");
-        } else {
+        var_dump($data);
+        var_dump($data[0]);
+        var_dump($data[1]);
+        var_dump($data[0]['id']);
             if ($data[1]) {
                 session_start();
-                $_SESSION['id'] = $resultat['id'];
+                $_SESSION['id'] = $data[0]['id'];
                 $_SESSION['pseudo'] = $pseudo;
-                header("location:../index.php?route=admin");
+                $_SESSION['password'] = $password;
+               header("location:../public/index.php?route=connectAdm");
             } else {
-                header("location:../index.php?route=connect");
-            }
+                header("location:../public/index.php?route=connect");
 
-        }
+            }
 
     }
 
+public function connectAdm(){
+        require '../templates/admin_page.php';
+}
 
     public function deconnect()
     {
