@@ -73,7 +73,7 @@ class HomeController
                 header("location:../public/index.php?route=connect");
 
             }
-
+        session_destroy();
     }
 
 public function connectAdm(){

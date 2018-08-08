@@ -1,7 +1,8 @@
+
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-    <meta charset="utf-8">
+    <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta name="description" content="Mon super blog">
     <meta name="author" content="Alexandre">
@@ -36,14 +37,14 @@
                 <a class="nav-link" href="connect.php">Se connecter</a>
 
 
-        <form class="form-inline my-2 my-lg-0">
-            <input class="form-control mr-sm-2" type="text" placeholder="Rechercher" aria-label="Search">
-            <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Rechercher</button>
-        </form>
+                <form class="form-inline my-2 my-lg-0">
+                    <input class="form-control mr-sm-2" type="text" placeholder="Rechercher" aria-label="Search">
+                    <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Rechercher</button>
+                </form>
     </div>
 </nav>
 
-       <div class="container">
+<div class="container">
 
     <div class="starter-template">
         <h1>Mon blog</h1>
@@ -52,7 +53,7 @@
         <a href="index.php?route=addArticle">Ajouter un article </a>
 
 
-                <h2>Mes Articles</h2>
+        <h2>Mes Articles</h2>
         <?php
 
         $article = new App\src\DAO\ArticleDAO();
@@ -63,12 +64,12 @@
 
             <div class="text-left">
                 <h2><a href="index.php?route=article&id=<?= $data['id'];?>"><?= $data['title'];?></a></h2>
-                    <p><?= $data['content'];?></p>
-                    <p><?= $data['author'];?></p>
-                    <p>Créé le <?= $data['date_added'];?></p>
+                <p><?= $data['content'];?></p>
+                <p><?= $data['author'];?></p>
+                <p>Créé le <?= $data['date_added'];?></p>
             </div>
             <br>
-        <?php
+            <?php
         }
         $articles->closeCursor();
         ?>

@@ -85,10 +85,8 @@ class Router
                     var_dump($_POST);
                     if (isset($_POST['submit'])) {
                         var_dump("connecté");
-
                         $password = $_POST['password'];
                         $pseudo = $_POST['pseudo'];
-
                         $this->homeController->connectMember($pseudo, $password);
                     }
                     var_dump("nonconnecté");

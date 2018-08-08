@@ -37,9 +37,9 @@
                 <a class="nav-link" href="index.php?route=connectMember">Se connecter</a>
 
                 <form class="form-inline my-2 my-lg-0">
-            <input class="form-control mr-sm-2" type="text" placeholder="Rechercher" aria-label="Search">
-            <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Rechercher</button>
-        </form>
+                    <input class="form-control mr-sm-2" type="text" placeholder="Rechercher" aria-label="Search">
+                    <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Rechercher</button>
+                </form>
     </div>
 </nav>
 
@@ -51,8 +51,8 @@
 
         <?php
 
-    $data = $articles->fetch();
-?>
+        $data = $articles->fetch();
+        ?>
         <div class="text-left">
             <a href="index.php?route=deleteArticle&id<?=$_GET['id'];?>">supprimer</a>
             <h2><?= $data['title'];?></h2>
@@ -67,24 +67,24 @@
             <h3>Poster votre commentaire</h3>
 
 
-<form method='POST' action="../public/index.php?route=addComment&id=<?=$_GET['id'];?>">
+            <form method='POST' action="../public/index.php?route=addComment&id=<?=$_GET['id'];?>">
 
-            <div class="text-left">
-                <label for="author">Auteur</label><br/>
-                <input type="text" id="author" name="pseudo"/>
-            </div>
-            <div>
-                <label for="content">Commentaire</label><br/>
-                <textarea id="content" name="content"></textarea>
-            </div>
-            <div>
-                <input type="submit"/>
-            </div>
+                <div class="text-left">
+                    <label for="author">Auteur</label><br/>
+                    <input type="text" id="author" name="pseudo"/>
+                </div>
+                <div>
+                    <label for="content">Commentaire</label><br/>
+                    <textarea id="content" name="content"></textarea>
+                </div>
+                <div>
+                    <input type="submit"/>
+                </div>
             </form>
 
 
 
-        <h3>Commentaires</h3>
+            <h3>Commentaires</h3>
 
 
             <?php
@@ -92,30 +92,30 @@
 
             while($datas = $comments->fetch())
             {
-            ?>
+                ?>
 
-            <h4><?= $datas['pseudo']; ?></h4> <a href="index.php?route=editComment&id=<?=$_GET['id'];?>">Modifier</a>
+                <h4><?= $datas['pseudo']; ?></h4> <a href="index.php?route=editComment&id=<?=$_GET['id'];?>">Modifier</a>
 
-            <p><?= $datas['content']; ?></p>
+                <p><?= $datas['content']; ?></p>
                 <p>Posté le <?= $datas['date_added']; ?></p>
 
-        <?php
-        }
-        $comments->closeCursor();
-        ?>
+                <?php
+            }
+            $comments->closeCursor();
+            ?>
 
 
         </div>
-</div><!-- /.container -->
+    </div><!-- /.container -->
 
 
-<!-- Bootstrap core JavaScript
-================================================== -->
-<!-- Placed at the end of the document so the pages load faster -->
-<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
-<script src="http://getbootstrap.com/assets/js/vendor/popper.min.js"></script>
-<script src="http://getbootstrap.com/dist/js/bootstrap.min.js"></script>
-<!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
-<script src="http://getbootstrap.com/assets/js/ie10-viewport-bug-workaround.js"></script>
+    <!-- Bootstrap core JavaScript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="http://getbootstrap.com/assets/js/vendor/popper.min.js"></script>
+    <script src="http://getbootstrap.com/dist/js/bootstrap.min.js"></script>
+    <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
+    <script src="http://getbootstrap.com/assets/js/ie10-viewport-bug-workaround.js"></script>
 </body>
 </html>
