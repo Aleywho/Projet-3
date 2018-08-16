@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="fr">
 <head>
@@ -34,7 +35,7 @@
             <li class="nav-item">
                 <a class="nav-link" href="index.php?route=register">S'inscrire</a>
             <li class="nav-item">
-                <a class="nav-link" href="index.php?route=connectMember">Se connecter</a>
+                <a class="nav-link" href="index.php?route=connect">Se connecter</a>
 
                 <form class="form-inline my-2 my-lg-0">
                     <input class="form-control mr-sm-2" type="text" placeholder="Rechercher" aria-label="Search">
@@ -53,15 +54,14 @@
 
         $data = $articles->fetch();
         ?>
+
         <div class="text-left">
-            <a href="index.php?route=deleteArticle&id<?=$_GET['id'];?>">supprimer</a>
             <h2><?= $data['title'];?></h2>
-            <a href="index.php?route=editArticle&id=<?=$_GET['id'];?>">Modifier</a>
             <p><?= $data['content'];?></p>
             <p><?= $data['author'];?></p>
             <p>Créé le <?= $data['date_added'];?></p>
-        </div>
-        <a href="index.php">Retour à l'accueil</a>
+            <div>
+            <a href ="index.php">Retour à l'accueil</a>
         <div id="comments" class="text-left" style="margin-left: 50px">
 
             <h3>Poster votre commentaire</h3>

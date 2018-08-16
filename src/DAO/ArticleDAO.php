@@ -29,4 +29,10 @@ class ArticleDAO extends DAO
         $sql = 'DELETE FROM article WHERE id = ? ';
         $this ->sql($sql, [$id]);
     }
+    public function getArticleAdm($id)
+    {
+        $sql = 'SELECT id, title, content, author, date_added FROM article WHERE id = ?';
+        $result = $this->sql($sql, [$id]);
+        return $result;
+    }
 }

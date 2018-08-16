@@ -13,15 +13,19 @@ class MemberDAO extends DAO
     public function connectMember($pseudo, $password)
     {
         $sql = 'SELECT pseudo, id , password FROM member WHERE pseudo = ?';
-        $resultat = $this->sql($sql,[$pseudo]);
-        $resultat= $resultat->fetch();
+        $resultat = $this->sql($sql, [$pseudo]);
+        $resultat = $resultat->fetch();
         var_dump($sql);
         var_dump($resultat);
+        var_dump($password);
         $isPasswordCorrect = password_verify($password, $resultat['password']);
         var_dump($isPasswordCorrect);
         $data = [$resultat, $isPasswordCorrect];
         return $data;
 
     }
+
 }
+
+
 

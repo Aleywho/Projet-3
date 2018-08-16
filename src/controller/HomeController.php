@@ -47,42 +47,52 @@ class HomeController
 
     }
 
-    public
-    function connect()
+
+       public function connect()
     {
 
         require '../templates/connect.php';
     }
 
+    public function checkMember($pseudo, $password){
+        $this->check($pseudo, $password);
+    }
+    private function check($pseudo, $password){
+        var_dump("abcdefghijklmnopqrstuvw");
+        var_dump($pseudo);
+        $MemberDAO = new MemberDAO();
 
+        $data = $MemberDAO->connectMember($pseudo, $password);
+        if ($data[1]) {
+            session_start();
+            $_SESSION['id'] = $data[0]['id'];
+            $_SESSION['pseudo'] = $pseudo;
+            header("location:../public/index.php?route=admin");
+        } else {
+            header("location:../public/index.php?route=connect");
+
+        }
+    }
     public function connectMember($pseudo, $password)
     {
+        session_start();
         $MemberDAO = new MemberDAO();
         $data = $MemberDAO->connectMember($pseudo, $password);
         var_dump($data);
         var_dump($data[0]);
         var_dump($data[1]);
         var_dump($data[0]['id']);
-            if ($data[1]) {
-                session_start();
-                $_SESSION['id'] = $data[0]['id'];
-                $_SESSION['pseudo'] = $pseudo;
-                $_SESSION['password'] = $password;
-               header("location:../public/index.php?route=connectAdm");
-            } else {
-                header("location:../public/index.php?route=connect");
+        if ($data[1]) {
+            $_SESSION['id'] = $data[0]['id'];
+            $_SESSION['pseudo'] = $pseudo;
+        } else {
+            header("location:../public/index.php?route=connect");
 
-            }
-        session_destroy();
+        }
     }
 
-public function connectAdm(){
-        require '../templates/admin_page.php';
-}
-
-    public function deconnect()
+    public function connectAdm()
     {
-
-        require '../templates/deconnect.php';
+        require '../templates/home.php';
     }
 }

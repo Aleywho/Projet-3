@@ -1,6 +1,6 @@
-<h2>Connexion</h2>
+﻿<h2>Connexion</h2>
 
-<form method='POST' action="../public/index.php?route=check">
+<form method='POST' action="index.php">
 
     <div class="form-group">
         <label for="pseudo">Pseudo</label>

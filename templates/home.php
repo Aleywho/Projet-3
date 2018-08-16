@@ -34,7 +34,7 @@
             <li class="nav-item">
                 <a class="nav-link" href="index.php?route=register">S'inscrire</a>
             <li class="nav-item">
-                <a class="nav-link" href="connect.php">Se connecter</a>
+                <a class="nav-link" href="index.php?route=connect">Se connecter</a>
 
 
                 <form class="form-inline my-2 my-lg-0">
@@ -51,7 +51,6 @@
         <p class="lead">En construction</p>
 
         <a href="index.php?route=addArticle">Ajouter un article </a>
-
 
         <h2>Mes Articles</h2>
         <?php
