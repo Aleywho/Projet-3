@@ -10,24 +10,45 @@ use App\src\DAO\CommentDAO;
 
 class BackController
 {
-    public function home(){
-        var_dump($_SESSION['pseudo']);
-        require'../templates/admin_home.php';
+    private function checkAdmin()
+    {
+        session_start();
+        if ($_SESSION['pseudo'])
+        {
+            return true;
+        }
+        else{
+            header('location: taroute');
+
+        }
+    }
+    public function home()
+    {
+        if ($this->checkAdmin())
+        {
+
+            require '../templates/admin_home.php';
+        }
     }
 
-    public function AdmArt(){
+    public function AdmArt()
+    {
     require'../templates/admin_art.php';
     }
     public function postArticle($title, $content, $author)
     {
-        session_start();
+
         $ArticleDAO = new ArticleDAO();
         $ArticleDAO->postArticle($title, $content, $author);
 
         header ("location:../public/index.php?route=addArticle" );
     }
-    public function addArticle(){
-        require '../templates/add_article.php';
+    public function addArticle()
+    {
+        if ($this->checkAdmin())
+        {
+            require '../templates/add_article.php';
+        }
     }
 
 //editer les commentaires
@@ -47,9 +68,13 @@ class BackController
         $deleteArt->deleteArticle($id, $content, $author);
         header("location:../public/index.php?route=deleteArticle&id=$id");
     }
-    public function postDelete(){
-        require '../templates/delete_Article.php';
-    }
+    public function postDelete()
+        {
+            if ($this->checkAdmin()) {
+
+                require '../templates/delete_Article.php';
+            }
+        }
     public function editArticle($content, $title, $id){
         session_start();
         $editArt = new ArticleDAO();

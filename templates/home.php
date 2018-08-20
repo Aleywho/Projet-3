@@ -50,7 +50,7 @@
         <h1>Mon blog</h1>
         <p class="lead">En construction</p>
 
-        <a href="index.php?route=addArticle">Ajouter un article </a>
+
 
         <h2>Mes Articles</h2>
         <?php

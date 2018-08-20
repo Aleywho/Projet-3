@@ -117,6 +117,7 @@ class Router
 
 
                 }
+
                 elseif ($_GET['route'] == 'admin')
                 {
                     $this->backController->home();

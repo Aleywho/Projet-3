@@ -58,7 +58,7 @@ class HomeController
         $this->check($pseudo, $password);
     }
     private function check($pseudo, $password){
-        var_dump("abcdefghijklmnopqrstuvw");
+        var_dump("abcdefghijklmnopqrstuvwxyz");
         var_dump($pseudo);
         $MemberDAO = new MemberDAO();
 
@@ -67,25 +67,12 @@ class HomeController
             session_start();
             $_SESSION['id'] = $data[0]['id'];
             $_SESSION['pseudo'] = $pseudo;
+
             header("location:../public/index.php?route=admin");
-        } else {
-            header("location:../public/index.php?route=connect");
 
         }
-    }
-    public function connectMember($pseudo, $password)
-    {
-        session_start();
-        $MemberDAO = new MemberDAO();
-        $data = $MemberDAO->connectMember($pseudo, $password);
-        var_dump($data);
-        var_dump($data[0]);
-        var_dump($data[1]);
-        var_dump($data[0]['id']);
-        if ($data[1]) {
-            $_SESSION['id'] = $data[0]['id'];
-            $_SESSION['pseudo'] = $pseudo;
-        } else {
+        else
+            {
             header("location:../public/index.php?route=connect");
 
         }
