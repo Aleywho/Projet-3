@@ -38,4 +38,4 @@
         <h1>Ma page d'admin</h1>
         <p class="lead">En construction</p>
 
-        <a href="index.php?route=addArticle">Ajouter un article </a>
+        <a href="index.php?route=addArticle">Pour ajouter un article </a>

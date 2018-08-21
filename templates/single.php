@@ -54,7 +54,7 @@
 
         $data = $articles->fetch();
         ?>
-
+        <a href="index.php?route=editArticle&id=<?=$_GET['id'];?>">Modifier</a>
         <div class="text-left">
             <h2><?= $data['title'];?></h2>
             <p><?= $data['content'];?></p>

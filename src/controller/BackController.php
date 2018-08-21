@@ -18,7 +18,7 @@ class BackController
             return true;
         }
         else{
-            header('location: taroute');
+            header('location: ../public/index.php?route=admin');
 
         }
     }
@@ -54,37 +54,47 @@ class BackController
 //editer les commentaires
     public function editComment ($newContent, $id)
     {
-        session_start();
+
         $editDAO = new CommentDAO();
         $editDAO->editComment($newContent, $id);
         header("location:../public/index.php?route=editComment&id=$id");
     }
-    public function postEdit (){
-        require'../templates/edit_comment.php';
+    public function postEdit ()
+    {
+        if ($this->checkAdmin())
+        {
+
+            require '../templates/edit_comment.php';
+        }
     }
     public function deleteArticle($id, $content, $author){
-        session_start();
+
         $deleteArt = new ArticleDAO();
         $deleteArt->deleteArticle($id, $content, $author);
         header("location:../public/index.php?route=deleteArticle&id=$id");
     }
     public function postDelete()
         {
-            if ($this->checkAdmin()) {
+            if ($this->checkAdmin())
+            {
 
                 require '../templates/delete_Article.php';
             }
         }
     public function editArticle($content, $title, $id){
-        session_start();
+
         $editArt = new ArticleDAO();
         $editArt->editArticle($content, $title, $id);
         header("location:../public/index.php?route=editArticle&id=$id");
     }
-    public function postEditA(){
-        require '../templates/edit_article.php';
-    }
+    public function postEditA()
+    {
+        if ($this->checkAdmin())
+        {
 
+            require '../templates/edit_article.php';
+        }
+    }
 public function deconnect(){
     $_SESSION = array();
     session_destroy();
