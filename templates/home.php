@@ -33,9 +33,20 @@
                 <a class="nav-link" href="index.php">Articles</a>
             <li class="nav-item">
                 <a class="nav-link" href="index.php?route=register">S'inscrire</a>
-            <li class="nav-item">
-                <a class="nav-link" href="index.php?route=connect">Se connecter</a>
 
+            <li class="nav-item">
+                <a class="nav-link"
+            <?php
+            if ((isset($_SESSION['pseudo'])) && ($_SESSION['pseudo'] != ''))
+                {
+                    var_dump($_SESSION);
+                    ?>
+
+                <a href="index.php?route=deconnect">Se déconnecter</a>
+                    <?php
+                }
+                ?>
+                <a class="nav-link" href="index.php?route=connect">Se connecter</a>
 
                 <form class="form-inline my-2 my-lg-0">
                     <input class="form-control mr-sm-2" type="text" placeholder="Rechercher" aria-label="Search">
@@ -50,13 +61,21 @@
         <h1>Mon blog</h1>
         <p class="lead">En construction</p>
 
-        <a href="index.php?route=editArticle&id=<?=$_GET['id'];?>">Modifier</a>
+
+
+
 
         <h2>Mes Articles</h2>
         <?php
+        if (isset($_SESSION['pseudo'])) {
+            var_dump($_SESSION);
 
-        $article = new App\src\DAO\ArticleDAO();
-        $articles = $article->getArticles();
+            ?>
+            <a href="index.php?route=addArticle">Pour ajouter un article </a>
+            <?php
+        }
+        ?>
+        <?php
         while( $data = $articles->fetch())
         {
             ?>
@@ -70,9 +89,12 @@
             <br>
             <?php
         }
+
         $articles->closeCursor();
         ?>
+        <?php
 
+        ?>
     </div>
 </div>
 

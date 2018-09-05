@@ -6,9 +6,15 @@ use App\src\DAO\ArticleDAO;
 use App\src\DAO\CommentDAO;
 use App\src\DAO\MemberDAO;
 
-
 class HomeController
 {
+
+
+    public function __construct()
+    {
+        session_start();
+    }
+
     public function index()
     {
         $article = new ArticleDAO();
@@ -64,7 +70,6 @@ class HomeController
 
         $data = $MemberDAO->connectMember($pseudo, $password);
         if ($data[1]) {
-            session_start();
             $_SESSION['id'] = $data[0]['id'];
             $_SESSION['pseudo'] = $pseudo;
 

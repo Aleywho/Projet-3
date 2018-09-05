@@ -22,6 +22,8 @@
     </button>
     <li class="nav-item">
         <a class="nav-link" href="index.php?route=deconnect">Se déconnecter</a>
+        <a class="nav-link" href="index.php">Articles</a>
+    <li class="nav-item">
     <div class="collapse navbar-collapse" id="navbarsExampleDefault">
         <ul class="navbar-nav mr-auto">
 
@@ -38,4 +40,6 @@
         <h1>Ma page d'admin</h1>
         <p class="lead">En construction</p>
 
-        <a href="index.php?route=addArticle">Pour ajouter un article </a>
+
+
+        <a class="nav-link" href="index.php">Administrer les Articles</a>

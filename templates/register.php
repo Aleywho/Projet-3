@@ -1,12 +1,4 @@
-<?php
-
-
-        ?>
-
-
-
-
-        <h1>S'inscrire</h1>
+       <h1>S'inscrire</h1>
 
         <form action="../public/index.php?route=addMember" method="POST">
 
@@ -29,4 +21,3 @@
                     <a href="index.php?route=connect">Déjà connecté? </a>
                 </div>
             </div>
-

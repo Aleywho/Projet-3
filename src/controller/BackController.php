@@ -12,13 +12,12 @@ class BackController
 {
     private function checkAdmin()
     {
-        session_start();
         if ($_SESSION['pseudo'])
         {
             return true;
         }
         else{
-            header('location: ../public/index.php?route=admin');
+            header('location: ../public/index.php?route=connect');
 
         }
     }
@@ -49,6 +48,9 @@ class BackController
         {
             require '../templates/add_article.php';
         }
+        else {
+            header('location:../public/index.php?route=connect');
+        }
     }
 
 //editer les commentaires
@@ -66,6 +68,9 @@ class BackController
 
             require '../templates/edit_comment.php';
         }
+        else {
+            header('location:../public/index.php?route=connect');
+        }
     }
     public function deleteArticle($id, $content, $author){
 
@@ -79,6 +84,9 @@ class BackController
             {
 
                 require '../templates/delete_Article.php';
+            }
+            else {
+                header('location:../public/index.php?route=connect');
             }
         }
     public function editArticle($content, $title, $id){
@@ -94,7 +102,11 @@ class BackController
 
             require '../templates/edit_article.php';
         }
+        else {
+            header('location:../public/index.php?route=connect');
+        }
     }
+
 public function deconnect(){
     $_SESSION = array();
     session_destroy();

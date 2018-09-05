@@ -1,4 +1,3 @@
-
 <h2>Editer l'article</h2>
 
 <form method='POST' action="../public/index.php?route=editArticle&id=<?=$_GET['id'];?>">
@@ -11,3 +10,5 @@
 
     <input type="submit" name="submit"/>
 <a href="index.php?route=article&id=<?=$_GET['id'];?>">Retour à l'article</a>
+
+

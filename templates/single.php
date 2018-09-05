@@ -34,7 +34,16 @@
                 <a class="nav-link" href="index.php">Articles</a>
             <li class="nav-item">
                 <a class="nav-link" href="index.php?route=register">S'inscrire</a>
-            <li class="nav-item">
+                <?php
+                if ((isset($_SESSION['pseudo'])))
+                {
+                    var_dump($_SESSION);
+                    ?>
+
+                    <a href="index.php?route=deconnect">Se déconnecter</a>
+                    <?php
+                }
+                ?>
                 <a class="nav-link" href="index.php?route=connect">Se connecter</a>
 
                 <form class="form-inline my-2 my-lg-0">
@@ -52,9 +61,20 @@
 
         <?php
 
+
         $data = $articles->fetch();
+
         ?>
-        <a href="index.php?route=editArticle&id=<?=$_GET['id'];?>">Modifier</a>
+        <?php
+        if (isset($_SESSION['pseudo'])) {
+            var_dump($_SESSION);
+
+            ?>
+            <a href="index.php?route=editArticle&id=<?=$_GET['id'];?>">Modifier</a>
+            <?php
+        }
+        ?>
+
         <div class="text-left">
             <h2><?= $data['title'];?></h2>
             <p><?= $data['content'];?></p>
@@ -93,8 +113,16 @@
             while($datas = $comments->fetch())
             {
                 ?>
+            <?php
+            if (isset($_SESSION['pseudo'])) {
+            var_dump($_SESSION);
 
+            ?>
                 <h4><?= $datas['pseudo']; ?></h4> <a href="index.php?route=editComment&id=<?=$_GET['id'];?>">Modifier</a>
+            <?php
+            }
+            ?>
+
 
                 <p><?= $datas['content']; ?></p>
                 <p>Posté le <?= $datas['date_added']; ?></p>
