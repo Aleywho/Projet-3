@@ -30,22 +30,20 @@
                 <a class="nav-link" href="index.php">Accueil <span class="sr-only"></span></a>
             </li>
             <li class="nav-item">
-
                 <a class="nav-link" href="index.php">Articles</a>
             <li class="nav-item">
                 <a class="nav-link" href="index.php?route=register">S'inscrire</a>
                 <?php
-                if ((isset($_SESSION['pseudo'])))
+                if ((isset($_SESSION['pseudo'])) && ($_SESSION['pseudo'] != ''))
                 {
-                    var_dump($_SESSION);
-                    ?>
-
-                    <a href="index.php?route=deconnect">Se déconnecter</a>
-                    <?php
+                ?>
+            <li class="nav-item">
+                <a class="nav-link" href="index.php?route=deconnect">Se déconnecter</a>
+                <?php
                 }
                 ?>
-                <a class="nav-link" href="index.php?route=connect">Se connecter</a>
-
+            <li class="nav-item">
+                <a class="nav-link"  href="index.php?route=admin">Ma page d'admin</a>
                 <form class="form-inline my-2 my-lg-0">
                     <input class="form-control mr-sm-2" type="text" placeholder="Rechercher" aria-label="Search">
                     <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Rechercher</button>
@@ -74,7 +72,14 @@
             <?php
         }
         ?>
-
+        <?php
+        if (isset($_SESSION['pseudo'])) {
+            var_dump($_SESSION);
+            ?>
+            <a href="index.php?route=deleteArticle&id=<?=$_GET['id'];?>">Supprimer</a>
+            <?php
+        }
+        ?>
         <div class="text-left">
             <h2><?= $data['title'];?></h2>
             <p><?= $data['content'];?></p>
@@ -83,6 +88,8 @@
             <div>
             <a href ="index.php">Retour à l'accueil</a>
         <div id="comments" class="text-left" style="margin-left: 50px">
+
+
 
             <h3>Poster votre commentaire</h3>
 
@@ -118,6 +125,7 @@
             var_dump($_SESSION);
 
             ?>
+                <a href="index.php?route=signalement&id=<?=$_GET['id'];?>">Signaler</a>
                 <h4><?= $datas['pseudo']; ?></h4> <a href="index.php?route=editComment&id=<?=$_GET['id'];?>">Modifier</a>
             <?php
             }

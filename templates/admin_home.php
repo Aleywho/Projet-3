@@ -15,24 +15,23 @@
 
 <body>
 
-<nav class="navbar navbar-expand-md navbar-dark bg-dark fixed-top">
-    <a class="navbar-brand" href="index.php">Mon blog</a>
-    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExampleDefault" aria-controls="navbarsExampleDefault" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-    </button>
-    <li class="nav-item">
-        <a class="nav-link" href="index.php?route=deconnect">Se déconnecter</a>
-        <a class="nav-link" href="index.php">Articles</a>
-    <li class="nav-item">
-    <div class="collapse navbar-collapse" id="navbarsExampleDefault">
-        <ul class="navbar-nav mr-auto">
-
-            <form class="form-inline my-2 my-lg-0">
-                    <input class="form-control mr-sm-2" type="text" placeholder="Rechercher" aria-label="Search">
-                    <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Rechercher</button>
-                </form>
+<div class="row">
+    <div class="col-3">
+        <div class="nav flex-column nav-pills" id="v-pills-tab" role="tablist" aria-orientation="vertical">
+            <a class="nav-link" id="v-pills-profile-tab" data-toggle="pill" href="index.php?route=admin" role="tab" aria-controls="v-pills-profile" aria-selected="false">Profile</a>
+            <a class="nav-link active" id="v-pills-home-tab" data-toggle="pill" href="index.php" role="tab" aria-controls="v-pills-home" aria-selected="true">Page des articles</a>
+          <a class="nav-link" id="v-pills-messages-tab" data-toggle="pill" href="#v-pills-messages" role="tab" aria-controls="v-pills-messages" aria-selected="false">Signalement</a>
+        </div>
     </div>
-</nav>
+    <div class="col-9">
+        <div class="tab-content" id="v-pills-tabContent">
+            <div class="tab-pane fade show active" id="v-pills-home" role="tabpanel" aria-labelledby="v-pills-home-tab">...</div>
+            <div class="tab-pane fade" id="v-pills-profile" role="tabpanel" aria-labelledby="v-pills-profile-tab">...</div>
+            <div class="tab-pane fade" id="v-pills-messages" role="tabpanel" aria-labelledby="v-pills-messages-tab">...</div>
+            <div class="tab-pane fade" id="v-pills-settings" role="tabpanel" aria-labelledby="v-pills-settings-tab">...</div>
+        </div>
+    </div>
+</div>
 
 <div class="container">
 
@@ -42,4 +41,6 @@
 
 
 
-        <a class="nav-link" href="index.php">Administrer les Articles</a>
+        <h2>Mes Articles</h2>
+            <a href="index.php?route=addArticle">Pour ajouter un article </a>
+

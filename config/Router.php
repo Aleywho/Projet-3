@@ -80,9 +80,8 @@ class Router
                     {
                         var_dump($_POST);
                         $id = $_GET['id'];
-                        $content = $_POST['content'];
-                        $author = $_POST['author'];
-                        $this->backController->deleteArticle($id, $content, $author);
+
+                        $this->backController->deleteArticle($id);
                     }
                     $this->backController->postDelete();
 
@@ -126,8 +125,11 @@ class Router
                 elseif ($_GET['route'] == 'deconnect')
                 {
                     $this->backController->deconnect();
-
-
+                }
+                elseif($_GET['route'] =='signalement')
+                {
+                    $id= $_GET['id'];
+                    $this->backController->signalement($id);
                 }
                 else
                     {

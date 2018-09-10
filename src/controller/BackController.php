@@ -23,6 +23,9 @@ class BackController
     }
     public function home()
     {
+        $articleDAO=new ArticleDAO();
+        $articleDAO->getArticles();
+
         if ($this->checkAdmin())
         {
 
@@ -72,10 +75,10 @@ class BackController
             header('location:../public/index.php?route=connect');
         }
     }
-    public function deleteArticle($id, $content, $author){
+    public function deleteArticle($id){
 
         $deleteArt = new ArticleDAO();
-        $deleteArt->deleteArticle($id, $content, $author);
+        $deleteArt->deleteArticle($id);
         header("location:../public/index.php?route=deleteArticle&id=$id");
     }
     public function postDelete()
@@ -103,6 +106,23 @@ class BackController
             require '../templates/edit_article.php';
         }
         else {
+            header('location:../public/index.php?route=connect');
+        }
+    }
+    public function signalement($id)
+    {
+        $signal = new CommentDAO();
+        $signal->signalement($id);
+        header ("location:../public/index.php?route=signalement&id=$id");
+    }
+    public function signalcoment()
+    {
+        if ($this->checkAdmin())
+        {
+            require '../templates/signalement.php';
+        }
+        else
+        {
             header('location:../public/index.php?route=connect');
         }
     }

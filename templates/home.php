@@ -29,24 +29,20 @@
                 <a class="nav-link" href="index.php">Accueil <span class="sr-only"></span></a>
             </li>
             <li class="nav-item">
-
                 <a class="nav-link" href="index.php">Articles</a>
             <li class="nav-item">
                 <a class="nav-link" href="index.php?route=register">S'inscrire</a>
-
-            <li class="nav-item">
-                <a class="nav-link"
             <?php
             if ((isset($_SESSION['pseudo'])) && ($_SESSION['pseudo'] != ''))
                 {
-                    var_dump($_SESSION);
                     ?>
-
-                <a href="index.php?route=deconnect">Se déconnecter</a>
+            <li class="nav-item">
+                <a class="nav-link" href="index.php?route=deconnect">Se déconnecter</a>
                     <?php
                 }
                 ?>
-                <a class="nav-link" href="index.php?route=connect">Se connecter</a>
+            <li class="nav-item">
+            <a class="nav-link"  href="index.php?route=admin">Ma page d'admin</a>
 
                 <form class="form-inline my-2 my-lg-0">
                     <input class="form-control mr-sm-2" type="text" placeholder="Rechercher" aria-label="Search">
