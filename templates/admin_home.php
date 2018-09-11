@@ -44,3 +44,25 @@
         <h2>Mes Articles</h2>
             <a href="index.php?route=addArticle">Pour ajouter un article </a>
 
+        <?php
+        while( $data = $articles->fetch())
+        {
+            ?>
+
+            <div class="text-left">
+                <h2><a href="index.php?route=article&id=<?= $data['id'];?>">
+                        <?= $data['title'];?></a></h2>
+                <p><?= $data['content'];?></p>
+
+                <p><?= $data['author'];?></p>
+                <p>Créé le <?= $data['date_added'];?></p>
+            </div>
+            <br>
+            <?php
+        }
+
+        $articles->closeCursor();
+        ?>
+<?php
+
+?>

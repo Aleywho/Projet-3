@@ -23,10 +23,14 @@ class BackController
     }
     public function home()
     {
-        $articleDAO=new ArticleDAO();
-        $articleDAO->getArticles();
-
+        $article = new ArticleDAO();
+        $articles = $article->getArticles();
+        if (isset($_SESSION['article']))
+        {
+            return true;
+        }
         if ($this->checkAdmin())
+
         {
 
             require '../templates/admin_home.php';
