@@ -25,13 +25,10 @@ class BackController
     {
         $article = new ArticleDAO();
         $articles = $article->getArticles();
-        if (isset($_SESSION['article']))
-        {
+        if (isset($_POST['article'])) {
             return true;
         }
-        if ($this->checkAdmin())
-
-        {
+        if ($this->checkAdmin()) {
 
             require '../templates/admin_home.php';
         }

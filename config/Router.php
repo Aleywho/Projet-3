@@ -64,8 +64,11 @@ class Router
                     }
                     $this->backController->postEdit();
 
-                } elseif ($_GET['route'] == 'editArticle') {
-                    if (isset ($_POST['submit'])) {
+                }
+                elseif ($_GET['route'] == 'editArticle')
+                {
+                    if (isset ($_POST['submit']))
+                    {
                         var_dump($_POST);
                         $content = $_POST['content'];
                         $title = $_POST['title'];

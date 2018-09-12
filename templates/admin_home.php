@@ -40,8 +40,10 @@
         <p class="lead">En construction</p>
 
 
+        <h2>Administrer les articles</h2>
+<br>
 
-        <h2>Mes Articles</h2>
+
             <a href="index.php?route=addArticle">Pour ajouter un article </a>
 
         <?php
@@ -50,12 +52,19 @@
             ?>
 
             <div class="text-left">
-                <h2><a href="index.php?route=article&id=<?= $data['id'];?>">
-                        <?= $data['title'];?></a></h2>
-                <p><?= $data['content'];?></p>
 
-                <p><?= $data['author'];?></p>
-                <p>Créé le <?= $data['date_added'];?></p>
+                <div class="text-left">
+                    <?php
+                    if (isset($_GET['id'])){
+                        return true;
+                    }
+                    ?>
+
+                    <h2><a href="index.php?route=article&id=<?= $data['id'];?>"><?= $data['title'];?></a></h2> <a class="btn btn-primary" href="index.php?route=editArticle&id=<?= $data['id'];?>">Modifier</a>
+                    <p><?= $data['content'];?></p>
+                    <p><?= $data['author'];?></p>
+                    <p>Créé le <?= $data['date_added'];?></p>
+
             </div>
             <br>
             <?php
