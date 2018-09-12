@@ -54,13 +54,9 @@
             <div class="text-left">
 
                 <div class="text-left">
-                    <?php
-                    if (isset($_GET['id'])){
-                        return true;
-                    }
-                    ?>
 
-                    <h2><a href="index.php?route=article&id=<?= $data['id'];?>"><?= $data['title'];?></a></h2> <a class="btn btn-primary" href="index.php?route=editArticle&id=<?= $data['id'];?>">Modifier</a>
+
+                    <h2><a href="index.php?route=article&id=<?= $data['id'];?>"><?= $data['title'];?></a></h2> <a class="btn btn-primary" href="index.php?route=editArticle&id=<?= $data['id'];?>">Modifier</a> <a class="btn btn-primary" href="index.php?route=deleteArticle&id=<?= $data['id'];?>">Supprimer</a>
                     <p><?= $data['content'];?></p>
                     <p><?= $data['author'];?></p>
                     <p>Créé le <?= $data['date_added'];?></p>
