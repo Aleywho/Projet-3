@@ -35,7 +35,7 @@ class HomeController
         $article = new ArticleDAO();
         $articles = $article->getArticle($id);
         $comment = new CommentDAO();
-        $comments = $comment->getCommentsFromArticle($_GET['id']);
+        $comments = $comment->getCommentsFromArticle($id);
         require '../templates/single.php';
     }
 

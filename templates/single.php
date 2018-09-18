@@ -130,8 +130,6 @@
             <?php
             }
             ?>
-
-
                 <p><?= $datas['content']; ?></p>
                 <p>Posté le <?= $datas['date_added']; ?></p>
 

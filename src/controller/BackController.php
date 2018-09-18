@@ -25,19 +25,12 @@ class BackController
     {
         $article = new ArticleDAO();
         $articles = $article->getArticles();
-        if (isset($_POST['article'])) {
-            return true;
-        }
         if ($this->checkAdmin()) {
 
             require '../templates/admin_home.php';
         }
     }
 
-    public function AdmArt()
-    {
-    require'../templates/admin_art.php';
-    }
     public function postArticle($title, $content, $author)
     {
 

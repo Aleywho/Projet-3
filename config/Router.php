@@ -122,9 +122,11 @@ class Router
 
                 elseif ($_GET['route'] == 'admin')
                 {
+
                     $this->backController->home();
 
                 }
+
                 elseif ($_GET['route'] == 'deconnect')
                 {
                     $this->backController->deconnect();

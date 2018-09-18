@@ -23,12 +23,6 @@ class CommentDAO extends DAO
 
     }
 
-    public function getCommentsFromArticleAdm($id)
-    {
-        $sql = 'SELECT id, pseudo, content, date_added FROM comment WHERE article_id = ?';
-        $result = $this->sql($sql, [$id]);
-        return $result;
-    }
     public function signalement($id){
         $sql = "UPDATE comment SET signalement = ? WHERE id=?";
         $this->sql($sql, [$id]);
