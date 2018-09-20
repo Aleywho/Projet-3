@@ -30,6 +30,14 @@ class BackController
             require '../templates/admin_home.php';
         }
     }
+    public function homeCom($id)
+    {
+        if (isset($commentDAO))
+        $commentDAO = new CommentDAO();
+        $commentDAO = $commentDAO ->getCommentsFromArticle($id);
+
+       header ("location:../public/index.php?route=article&id=$id");
+    }
 
     public function postArticle($title, $content, $author)
     {

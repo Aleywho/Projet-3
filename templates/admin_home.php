@@ -63,57 +63,53 @@
             <ul class="nav nav-tabs" id="myTab" role="tablist">
                 <li class="nav-item">
                     <a class="nav-link active" id="articles" data-toggle="tab"  role="tab" aria-controls="articles" href="index.php?route=admin" aria-selected="true">Articles</a>
+
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" id="comments" data-toggle="tab"
-                       role="tab" aria-controls="comments" aria-selected="false">Commentaires</a>
+                       role="tab" aria-controls="comments" href="index.php?route=admin" aria-selected="true">Commentaires</a>
+
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" id="actions" data-toggle="tab"  role="tab" aria-controls="Actions" aria-selected="false">Actions</a>
-
-
-                    <?php
-                    while ($data = $articles->fetch())
-
-                    {
-                    ?>
                 </li>
-            </ul>
-        <div class="tab-content" id="myTabContent">
-            <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
-                <h2><a href="index.php?route=article&id=<?= $data['id']; ?>"><?= $data['title']; ?></a></h2>
 
-            </div>
-            <p><?= $data['content']; ?></p>
-            <p><?= $data['author']; ?></p>
-            <p>Créé le <?= $data['date_added']; ?></p>
-            <?php
-            }
+                    <div class="tab-content" id="myTabContent">
+                        <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">...</div>
 
-            $articles->closeCursor();
+                        <div class="tab-pane fade" id="contact" role="tabpanel" aria-labelledby="contact-tab">...</div>
+                    </div>
 
-            ?>
-            <div class="tab-pane fade" id="profile" role="tabpanel" aria-labelledby="profile-tab">...</div>
+             <table class="table table-bordered">
+                 <thead>
+                 <tr>
+                     <th scope="col">ID</th>
+                     <th scope="col">Titres</th>
+                     <th scope="col">Modifier</th>
+                     <th scope="col">Supprimer</th>
+                 </tr>
+                 </thead>
+                 <tbody>
+                 <?php
+                 while ($data = $articles->fetch())
+                 {
+                     ?>
+                     <tr>
+                         <th scope="row"><?=$data['id']?></th>
+                         <td> <?=$data['title']?></td>
+                         <td> <a href="index.php?route=editArticle&id=<?=$data['id'];?>">Modifier</a></td>
+                         <td> <a href="index.php?route=deleteArticle&id=<?=$data['id'];?>">Supprimer</a></td>
+                     </tr>
+                     <?php
+                 }
+                 ?>
+                 <div class="tab-pane fade" id="comments" role="tabpanel" aria-labelledby="profile-tab">
 
-            <?php
-            while ($data = $comments->fetch())
-            {
-
-
-            ?>
-<h4><?= $data['pseudo']; ?></h4>
-
-            <p><?= $data['content']; ?></p>
-            <p>Posté le <?= $data['date_added']; ?></p>
-
-                <?php
-            }
-            $comments->closeCursor();
-            ?>
-
-            <div class="tab-pane fade" id="actions" role="tabpanel" aria-labelledby="contact-tab">...</div>
+                 </tbody>
+             </table>
 
         </div>
+
 
 
 
