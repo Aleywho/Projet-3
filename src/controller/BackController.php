@@ -25,6 +25,7 @@ class BackController
     {
         $article = new ArticleDAO();
         $articles = $article->getArticles();
+
         if ($this->checkAdmin()) {
 
             require '../templates/admin_home.php';
@@ -32,9 +33,10 @@ class BackController
     }
     public function homeCom($id)
     {
-        if (isset($commentDAO))
-        $commentDAO = new CommentDAO();
-        $commentDAO = $commentDAO ->getCommentsFromArticle($id);
+        if (isset($_POST['comments']))
+            var_dump($_POST);
+            $comment = new CommentDAO();
+        $comments = $comment ->getCommentsFromArticle($id);
 
        header ("location:../public/index.php?route=article&id=$id");
     }
