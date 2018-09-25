@@ -29,7 +29,6 @@ class HomeController
         header("Location: ../public/index.php?route=article&id=$id");
     }
 
-
     public function article($id)
     {
         $article = new ArticleDAO();

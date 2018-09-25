@@ -25,20 +25,14 @@ class BackController
     {
         $article = new ArticleDAO();
         $articles = $article->getArticles();
+        $comment = new CommentDAO();
+        $comments = $comment->getComments();
+        if (isset($article)&& isset($comment))
 
         if ($this->checkAdmin()) {
 
             require '../templates/admin_home.php';
         }
-    }
-    public function homeCom($id)
-    {
-        if (isset($_POST['comments']))
-            var_dump($_POST);
-            $comment = new CommentDAO();
-        $comments = $comment ->getCommentsFromArticle($id);
-
-       header ("location:../public/index.php?route=article&id=$id");
     }
 
     public function postArticle($title, $content, $author)

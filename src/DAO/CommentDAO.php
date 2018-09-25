@@ -28,5 +28,11 @@ class CommentDAO extends DAO
         $this->sql($sql, [$id]);
 
 }
+    public function getComments()
+    {
+        $sql = 'SELECT id, pseudo, content, date_added FROM comment ORDER BY id DESC';
+        $result=$this->sql($sql);
+return $result;
+    }
 
 }

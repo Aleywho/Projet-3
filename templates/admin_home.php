@@ -63,18 +63,18 @@
             <ul class="nav nav-tabs" id="myTab" role="tablist">
 
                 <li class="nav-item">
-                    <a class="nav-link active" id="articles" data-toggle="tab"  role="tab" aria-controls="articles" href="index.php?route=admin" aria-selected="true">Articles</a>
+                    <a class="nav-link active" id="#articles" data-toggle="tab"  role="tab" aria-controls="articles" href="index.php?route=admin" aria-selected="true">Articles</a>
 
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" id="#comments" data-toggle="tab"
+                    <a class="nav-link" id="comments" data-toggle="tab"
                        role="tab" aria-controls="comments" href="#comments" aria-selected="false">Commentaires</a>
                 </li>
 
 
                     <div class="tab-content" id="myTabContent">
                         <div class="tab-pane fade show active" id="#articles" role="tabpanel" aria-labelledby="articles">...</div>
-                        <div class="tab-pane fade" id="comments" role="tabpanel" aria-labelledby="comments">...</div>
+                        <div class="tab-pane fade" id="#comments" role="tabpanel" aria-labelledby="comments">...</div>
              <table class="table table-bordered">
                  <thead>
                  <tr>
@@ -98,36 +98,43 @@
                      <?php
                  }
                  ?>
+
+
                  <div class="tab-content" id="myTabContent">
-                     <div class="tab-pane fade" id="comments" role="tabpanel" aria-labelledby="comments">...</div>
+                     <div class="tab-pane fade show active" id="#articles" role="tabpanel" aria-labelledby="articles">...</div>
+                     <div class="tab-pane fade" id="#comments" role="tabpanel" aria-labelledby="comments">...</div>
                      <table class="table table-bordered">
                          <thead>
                          <tr>
-                             <th scope="col">ID</th>
+                             <th scope="col">Pseudo</th>
                              <th scope="col">Commentaires</th>
+                             <th scope="col">Date d'ajout</th>
                              <th scope="col">Modifier</th>
                              <th scope="col">Signaler</th>
                          </tr>
                          </thead>
                          <tbody>
+
+                    <br>
+                    <h2>Administrer les commentaires</h2>
+                         <br>
                          <?php
-                         while ($data = $comments ->fetch())
-                         {
-                         ?>
-                         <tr>
-                             <th scope="row"><?=$data['id']?></th>
-                             <td> <?=$data['title']?></td>
-                             <td> <a href="index.php?route=editArticle&id=<?=$data['id'];?>">Modifier</a></td>
-                             <td> <a href="index.php?route=deleteArticle&id=<?=$data['id'];?>">Supprimer</a></td>
-                         </tr>
-                         <?php
+
+
+                         while ($data = $result = $comments->fetch()) {
+                             ?>
+                             <tr>
+                                 <th scope="row"><?= $data['pseudo']; ?></th>
+                                 <td> <?= $data['content']; ?></td>
+                                 <td> Posté le <?= $data['date_added']; ?></td>
+                                 <td><a href="index.php?route=editComment&id=<?= $data['id']; ?>">Modifier</a></td>
+                                 <td><a href="index.php?route=signalement&id=<?= $data['id']; ?>">Signaler</a></td>
+                             </tr>
+
+                             <?php
                          }
                          ?>
                  </tbody>
              </table>
 
         </div>
-
-
-
-
