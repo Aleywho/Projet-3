@@ -107,11 +107,16 @@ class BackController
             header('location:../public/index.php?route=connect');
         }
     }
-    public function signalement($id)
+    public function signalement()
     {
-        $signal = new CommentDAO();
-        $signal->signalement($id);
-        header ("location:../public/index.php?route=signalement&id=$id");
+        if (!empty($_POST['id'])) {
+        $comment = new CommentDAO();
+        $comments -> $comments -> getComments($_POST['id']);
+        $comment ->signalement();
+        $id= $_POST['id'];
+
+            header("location:../public/index.php?route=signalement&id=$id");
+        }
     }
     public function signalcoment()
     {
