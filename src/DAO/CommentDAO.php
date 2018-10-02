@@ -23,10 +23,10 @@ class CommentDAO extends DAO
 
     }
 
-    public function signalement()
+    public function signalement($id)
     {
         $sql = "UPDATE comment SET signalement = ? WHERE id= ? ";
-        $result = $this->sql($sql);
+        $result = $this->sql($sql,[$id]);
         return $result;
 }
     public function getComments()

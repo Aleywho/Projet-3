@@ -44,7 +44,7 @@
                 <a class="nav-link" id="comments-tab" data-toggle="tab" href="#comments" role="tab" aria-controls="comments" aria-selected="false">Commentaires</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" id="utilisateur-tab" data-toggle="tab" href="#utilisateur" role="tab" aria-controls="utilisateur" aria-selected="false">Utilisateur</a>
+                <a class="nav-link" id="member-tab" data-toggle="tab" href="#member" role="tab" aria-controls="member" aria-selected="false">Utilisateur</a>
             </li>
         </ul>
         <div class="tab-content" id="myTabContent">
@@ -87,8 +87,6 @@
                     </thead>
                     <tbody>
                     <?php
-
-
                     while ($data = $result = $comments->fetch()) {
                         ?>
                         <tr>
@@ -102,17 +100,25 @@
                         <?php
                     }
                     ?>
+
+                    </tbody>
+                </table>
+        </div>
+            <div class="tab-pane fade" id="member" role="tabpanel" aria-labelledby="member-tab">
+                <table class="table table-bordered">
+                    <thead>
+                    <tr>
+                        <th scope="col">Pseudo</th>
+                        <th scope="col">Email</th>
+                        <th scope="col">Mot de passe</th>
+                        <th scope="col">Modifier le mot de passe</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+
                     </tbody>
                 </table>
             </div>
-
-            <div class="tab-pane fade" id="utilisateur" role="tabpanel" aria-labelledby="utilisateur-tab">...</div>
-        </div>
-
-
-
-
-        </div>
 
 <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>

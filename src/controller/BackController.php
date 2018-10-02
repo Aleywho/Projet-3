@@ -5,7 +5,7 @@ namespace App\src\controller;
 
 use App\src\DAO\ArticleDAO;
 use App\src\DAO\CommentDAO;
-
+use App\src\DAO\MemberDAO;
 
 
 class BackController
@@ -107,13 +107,12 @@ class BackController
             header('location:../public/index.php?route=connect');
         }
     }
-    public function signalement()
+    public function signalement($id)
     {
         if (!empty($_POST['id'])) {
         $comment = new CommentDAO();
         $comments -> $comments -> getComments($_POST['id']);
-        $comment ->signalement();
-        $id= $_POST['id'];
+        $comment ->signalement($id);
 
             header("location:../public/index.php?route=signalement&id=$id");
         }
@@ -130,6 +129,15 @@ class BackController
         }
     }
 
+    public function afficherMember($pseudo, $password,$email)
+    {
+        $member = new MemberDAO();
+        $member = $member ->afficherMember($pseudo, $password,$email);
+        if ($this->checkAdmin()) {
+
+            require '../templates/admin_home.php';
+        }
+    }
 public function deconnect(){
     $_SESSION = array();
     session_destroy();

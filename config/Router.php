@@ -88,6 +88,10 @@ class Router
 
                         $this->homeController->connect();
                     }
+                    }elseif ($_GET['route'] == 'afficherMember')
+                {
+                  $this ->backController->afficherMember($pseudo, $password,$email);
+
 
 
                 } elseif ($_GET['route'] == 'admin') {
@@ -98,8 +102,12 @@ class Router
                     $this->backController->deconnect();
 
                 } elseif ($_GET['route'] == 'signalement') {
+                    if(isset($_POST['submit'])){
+                        $id = $_GET['id'];
+                        $this->backController->signalement($id);
+                    }
 
-                    $this->backController->signalement();
+                    else
                     {
                         $this->backController->signalcoment();
                     }
