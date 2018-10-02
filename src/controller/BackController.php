@@ -107,27 +107,7 @@ class BackController
             header('location:../public/index.php?route=connect');
         }
     }
-    public function signalement($id)
-    {
-        if (!empty($_POST['id'])) {
-        $comment = new CommentDAO();
-        $comments -> $comments -> getComments($_POST['id']);
-        $comment ->signalement($id);
 
-            header("location:../public/index.php?route=signalement&id=$id");
-        }
-    }
-    public function signalcoment()
-    {
-        if ($this->checkAdmin())
-        {
-            require '../templates/signalement.php';
-        }
-        else
-        {
-            header('location:../public/index.php?route=connect');
-        }
-    }
 
     public function afficherMember($pseudo, $password,$email)
     {

@@ -104,12 +104,12 @@ class Router
                 } elseif ($_GET['route'] == 'signalement') {
                     if(isset($_POST['submit'])){
                         $id = $_GET['id'];
-                        $this->backController->signalement($id);
+                        $this->homeController->signalement($id);
                     }
 
                     else
                     {
-                        $this->backController->signalcoment();
+                        $this->homeController->signalcoment();
                     }
                 } else {
                     echo 'erreur';

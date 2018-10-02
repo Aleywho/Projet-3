@@ -134,7 +134,6 @@
 
                         <?php
                     }
-                    $comments->closeCursor();
                     ?>
 
 
