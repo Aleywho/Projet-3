@@ -113,6 +113,7 @@ class BackController
     {
         $member = new MemberDAO();
         $member = $member ->afficherMember($pseudo, $password,$email);
+
         if ($this->checkAdmin()) {
 
             require '../templates/admin_home.php';

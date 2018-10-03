@@ -103,8 +103,10 @@ class Router
 
                 } elseif ($_GET['route'] == 'signalement') {
                     if(isset($_POST['submit'])){
+                        var_dump($_POST);
                         $id = $_GET['id'];
-                        $this->homeController->signalement($id);
+                        $signalContent = $_POST['signalContent'];
+                        $this->homeController->signalement($id, $signalContent);
                     }
 
                     else

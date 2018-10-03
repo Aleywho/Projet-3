@@ -81,14 +81,15 @@ class HomeController
 
         }
     }
-    public function signalement($id)
+    public function signalement($id,$signalContent)
     {
+        if (isset($comment) &&isset( $signalContent)){
             $comment = new CommentDAO();
-            $comments -> $comments -> getComments($_POST['id']);
-            $comment ->signalement($id);
+            $comments= $comment ->signalement($id,$signalContent) ;
 
             header("location:../public/index.php?route=signalement&id=$id");
         }
+    }
 
     public function signalcoment()
     {
