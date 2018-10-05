@@ -27,6 +27,7 @@ class BackController
         $articles = $article->getArticles();
         $comment = new CommentDAO();
         $comments = $comment->getComments();
+
         if (isset($article)&& isset($comment))
 
         if ($this->checkAdmin()) {
@@ -119,6 +120,28 @@ class BackController
             require '../templates/admin_home.php';
         }
     }
+    public function deSignal($id)
+    {
+        if (isset ($_POST['submit'])) {
+            $comment = new CommentDAO();
+            $comments = $comment->deSignal($id);
+
+            header("location:../public/index.php?route=deSignal&id=$id");
+
+        }
+    }
+        public function designalCom()
+    {
+        if ($this->checkAdmin())
+        {
+
+            require '../templates/deSignal.php ';
+        }
+        else {
+            header('location:../public/index.php?route=connect');
+        }
+    }
+
 public function deconnect(){
     $_SESSION = array();
     session_destroy();

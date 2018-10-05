@@ -123,7 +123,7 @@
                             var_dump($_SESSION);
 
                             ?>
-                            <a href="index.php?route=signalement&id=<?= $_GET['id']; ?>">Signaler</a>
+                            <a href="index.php?route=signalement&id=<?= $datas['id']; ?>">Signaler</a>
                             <h4><?= $datas['pseudo']; ?></h4> <a
                                     href="index.php?route=editComment&id=<?= $_GET['id']; ?>">Modifier</a>
                             <?php

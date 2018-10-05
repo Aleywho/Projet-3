@@ -98,7 +98,7 @@
                             <td> <?= $data['content']; ?></td>
                             <td> Posté le <?= $data['date_added']; ?></td>
                             <td><a href="index.php?route=editComment&id=<?= $data['id']; ?>">Modifier</a></td>
-                            <td><a href="index.php?route=signalement&id=<?= $data['id']; ?>">Signaler</a></td>
+                            <td><a href="index.php?route=deSignal&id=<?= $data['id']; ?>">Retirer signalement</a></td>
                         </tr>
 
                         <?php
@@ -119,7 +119,9 @@
                     </tr>
                     </thead>
                     <tbody>
-
+                    <?php
+if (isset($_SESSION['pseudo']) AND isset($_SESSION['email']) AND isset ($_SESSION['password']))
+?>
                         <tr>
                             <th scope="row"><?= $_SESSION['pseudo']; ?></th>
                             <td> <?= $_SESSION['email']; ?></td>

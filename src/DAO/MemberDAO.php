@@ -26,7 +26,7 @@ class MemberDAO extends DAO
     }
 public function afficherMember($pseudo, $password,$email)
 {
-    $sql = 'SELECT pseudo, id , password FROM member WHERE pseudo = ?';
+    $sql = 'SELECT pseudo, password, email FROM member WHERE pseudo = ?';
     $this->sql($sql, [$pseudo, $password,$email]);
 }
 }

@@ -23,17 +23,24 @@ class CommentDAO extends DAO
 
     }
 
-    public function signalement($id, $signalContent)
+    public function signalement($id)
     {
-        $sql = "UPDATE comment SET signalement = ? WHERE id= ? ";
-        $result = $this->sql($sql,[$id,$signalContent]);
+        $sql = "UPDATE comment SET signalement = 1 WHERE id= ? ";
+        $result = $this->sql($sql, [$id]);
         return $result;
-}
+    }
+
     public function getComments()
     {
         $sql = 'SELECT id, pseudo, content, date_added FROM comment ORDER BY id DESC';
-        $result=$this->sql($sql);
-return $result;
+        $result = $this->sql($sql);
+        return $result;
     }
 
+    public function deSignal($id)
+    {
+        $sql = "UPDATE comment SET signalement = 0 WHERE id= ? ";
+        $result = $this->sql($sql, [$id]);
+        return $result;
+    }
 }

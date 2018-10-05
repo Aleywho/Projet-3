@@ -81,20 +81,24 @@ class HomeController
 
         }
     }
-    public function signalement($id,$signalContent)
+    public function signalement($id)
     {
-        if (isset($comment) &&isset( $signalContent)){
+        if (isset ($_POST['submit']))
+        {
             $comment = new CommentDAO();
-            $comments= $comment ->signalement($id,$signalContent) ;
+            $comments= $comment ->signalement($id) ;
 
             header("location:../public/index.php?route=signalement&id=$id");
         }
     }
 
+
+
     public function signalcoment()
     {
             require '../templates/signalement.php';
         }
+
 
     public function connectAdm()
     {

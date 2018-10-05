@@ -88,10 +88,11 @@ class Router
 
                         $this->homeController->connect();
                     }
-                    }elseif ($_GET['route'] == 'afficherMember')
-                {
-                  $this ->backController->afficherMember($pseudo, $password,$email);
-
+                } elseif ($_GET['route'] == 'afficherMember') {
+                    $pseudo = $_GET['pseudo'];
+                    $password = $_GET['password'];
+                    $email = $_GET['email'];
+                    $this->backController->afficherMember($pseudo, $password, $email);
 
 
                 } elseif ($_GET['route'] == 'admin') {
@@ -102,17 +103,24 @@ class Router
                     $this->backController->deconnect();
 
                 } elseif ($_GET['route'] == 'signalement') {
-                    if(isset($_POST['submit'])){
+                    if (isset($_POST['submit'])) {
                         var_dump($_POST);
+                        var_dump($_GET);
                         $id = $_GET['id'];
-                        $signalContent = $_POST['signalContent'];
-                        $this->homeController->signalement($id, $signalContent);
-                    }
+                        $this->homeController->signalement($id);
+                    } else {
 
-                    else
-                    {
                         $this->homeController->signalcoment();
                     }
+
+                    }elseif ($_GET['route'] == 'deSignal'){
+                        if (isset ($_POST['submit'])) {
+                            $id = $_GET['id'];
+                            $this->backController->deSignal($id);
+                        }else{
+                            $this->backController->designalCom();
+                        }
+
                 } else {
                     echo 'erreur';
                 }
