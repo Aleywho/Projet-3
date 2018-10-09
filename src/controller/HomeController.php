@@ -65,12 +65,15 @@ class HomeController
     private function check($pseudo, $password){
         var_dump("abcdefghijklmnopqrstuvwxyz");
         var_dump($pseudo);
+        var_dump($password);
         $MemberDAO = new MemberDAO();
 
         $data = $MemberDAO->connectMember($pseudo, $password);
         if ($data[1]) {
             $_SESSION['id'] = $data[0]['id'];
             $_SESSION['pseudo'] = $pseudo;
+            $_SESSION['password'] = $password;
+
 
             header("location:../public/index.php?route=admin");
 
@@ -87,7 +90,6 @@ class HomeController
         {
             $comment = new CommentDAO();
             $comments= $comment ->signalement($id) ;
-
             header("location:../public/index.php?route=signalement&id=$id");
         }
     }

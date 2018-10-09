@@ -12,7 +12,7 @@ class BackController
 {
     private function checkAdmin()
     {
-        if ($_SESSION['pseudo'])
+        if ($_SESSION['pseudo'] && ($_SESSION['password']))
         {
             return true;
         }
@@ -74,11 +74,15 @@ class BackController
             header('location:../public/index.php?route=connect');
         }
     }
-    public function deleteArticle($id){
+    public function deleteArticle($id)
+    {
+        if (isset ($_POST['delete']))
+        {
+            $delete = new ArticleDAO();
+            $delete->deleteArticle($id);
+            header("location:../public/index.php?route=deleteArticle&id=$id");
+        }
 
-        $deleteArt = new ArticleDAO();
-        $deleteArt->deleteArticle($id);
-        header("location:../public/index.php?route=deleteArticle&id=$id");
     }
     public function postDelete()
         {
@@ -109,17 +113,6 @@ class BackController
         }
     }
 
-
-    public function afficherMember($pseudo, $password,$email)
-    {
-        $member = new MemberDAO();
-        $member = $member ->afficherMember($pseudo, $password,$email);
-
-        if ($this->checkAdmin()) {
-
-            require '../templates/admin_home.php';
-        }
-    }
     public function deSignal($id)
     {
         if (isset ($_POST['submit'])) {
@@ -141,7 +134,23 @@ class BackController
             header('location:../public/index.php?route=connect');
         }
     }
+public function afficherSignal($id){
+        if (isset($_POST['submit']))
+        $signal = new CommentDAO();
+        $signal = $signal ->afficherSignal($id);
+        header ("location:../public/index.php?route=afficherSignal&id=$id");
+}
+public function signalVue(){
 
+    if ($this->checkAdmin())
+    {
+
+        require '../templates/admin_home.php ';
+    }
+    else {
+        header('location:../public/index.php?route=connect');
+    }
+}
 public function deconnect(){
     $_SESSION = array();
     session_destroy();

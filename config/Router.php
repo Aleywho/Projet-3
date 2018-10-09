@@ -63,6 +63,7 @@ class Router
                 } elseif ($_GET['route'] == 'deleteArticle') {
                     if (isset ($_POST['delete'])) {
                         var_dump($_POST);
+                        var_dump($_GET);
                         $id = $_GET['id'];
 
                         $this->backController->deleteArticle($id);
@@ -88,11 +89,6 @@ class Router
 
                         $this->homeController->connect();
                     }
-                } elseif ($_GET['route'] == 'afficherMember') {
-                    $pseudo = $_GET['pseudo'];
-                    $password = $_GET['password'];
-                    $email = $_GET['email'];
-                    $this->backController->afficherMember($pseudo, $password, $email);
 
 
                 } elseif ($_GET['route'] == 'admin') {
@@ -113,14 +109,22 @@ class Router
                         $this->homeController->signalcoment();
                     }
 
-                    }elseif ($_GET['route'] == 'deSignal'){
-                        if (isset ($_POST['submit'])) {
-                            $id = $_GET['id'];
-                            $this->backController->deSignal($id);
-                        }else{
-                            $this->backController->designalCom();
-                        }
-
+                    }elseif ($_GET['route'] == 'deSignal') {
+                    if (isset ($_POST['submit'])) {
+                        $id = $_GET['id'];
+                        $this->backController->deSignal($id);
+                    } else {
+                        $this->backController->designalCom();
+                    }
+                }elseif ($_GET['route'] == 'afficherSignal')
+                {
+                    if(isset($_POST['submit']))
+                    {
+                        $id = $_GET['id'];
+                        $this ->backController->afficherSignal($id);
+                    }else{
+                        $this ->backController->signalVue();
+                    }
                 } else {
                     echo 'erreur';
                 }

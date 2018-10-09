@@ -87,6 +87,7 @@
                         <th scope="col">Date d'ajout</th>
                         <th scope="col">Modifier</th>
                         <th scope="col">Signaler</th>
+                        <th scope="col">Actions </th>
                     </tr>
                     </thead>
                     <tbody>
@@ -94,13 +95,22 @@
                     while ($data = $result = $comments->fetch()) {
                         ?>
                         <tr>
-                            <th scope="row"><?= $data['pseudo']; ?></th>
-                            <td> <?= $data['content']; ?></td>
-                            <td> Posté le <?= $data['date_added']; ?></td>
-                            <td><a href="index.php?route=editComment&id=<?= $data['id']; ?>">Modifier</a></td>
-                            <td><a href="index.php?route=deSignal&id=<?= $data['id']; ?>">Retirer signalement</a></td>
-                        </tr>
+                        <th scope="row"><?= $data['pseudo']; ?></th>
+                        <td> <?= $data['content']; ?></td>
+                        <td> Posté le <?= $data['date_added']; ?></td>
+                        <td><a href="index.php?route=editComment&id=<?= $data['id']; ?>">Modifier</a></td>
+                        <td><a href="index.php?route=signalement&id=<?= $data['id']; ?>">Signaler</a></td>
 
+                        <?php
+if (isset($data[1]))
+{
+                            ?>
+                            <td><a href="index.php?route=deSignal&id=<?= $data['id']; ?>">Retirer signalement</a></td>
+                            </tr>
+
+                            <?php
+                        }
+                        ?>
                         <?php
                     }
                     ?>
@@ -119,9 +129,7 @@
                     </tr>
                     </thead>
                     <tbody>
-                    <?php
-if (isset($_SESSION['pseudo']) AND isset($_SESSION['email']) AND isset ($_SESSION['password']))
-?>
+
                         <tr>
                             <th scope="row"><?= $_SESSION['pseudo']; ?></th>
                             <td> <?= $_SESSION['email']; ?></td>
