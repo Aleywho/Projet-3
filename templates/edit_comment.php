@@ -1,9 +1,3 @@
-<?php
-
-?>
-
-
-
 <h2>Editer le commentaire</h2>
 
 <form method='POST' action="../public/index.php?route=editComment&id=<?=$_GET['id'];?>">

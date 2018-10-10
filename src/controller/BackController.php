@@ -136,8 +136,8 @@ class BackController
     }
 public function afficherSignal($id){
         if (isset($_POST['submit']))
-        $signal = new CommentDAO();
-        $signal = $signal ->afficherSignal($id);
+        $signals = new CommentDAO();
+        $signal = $signals ->afficherSignal($id);
         header ("location:../public/index.php?route=afficherSignal&id=$id");
 }
 public function signalVue(){
@@ -145,7 +145,6 @@ public function signalVue(){
     if ($this->checkAdmin())
     {
 
-        require '../templates/admin_home.php ';
     }
     else {
         header('location:../public/index.php?route=connect');

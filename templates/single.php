@@ -123,9 +123,10 @@
                             var_dump($_SESSION);
 
                             ?>
+
+                            <h4><?= $datas['pseudo']; ?></h4>
+                            <a href="index.php?route=editComment&id=<?= $_GET['id']; ?>">Modifier</a>
                             <a href="index.php?route=signalement&id=<?= $datas['id']; ?>">Signaler</a>
-                            <h4><?= $datas['pseudo']; ?></h4> <a
-                                    href="index.php?route=editComment&id=<?= $_GET['id']; ?>">Modifier</a>
                             <?php
                         }
                         ?>

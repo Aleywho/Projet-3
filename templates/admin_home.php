@@ -34,7 +34,7 @@
 
 
         <h2>Administrer les articles</h2>
-        <br>
+
 
         <a href="index.php?route=addArticle">Pour ajouter un article </a>
         <ul class="nav nav-tabs" id="myTab" role="tablist">
@@ -49,6 +49,11 @@
             <li class="nav-item">
                 <a class="nav-link" id="member-tab" data-toggle="tab" href="#member" role="tab" aria-controls="member"
                    aria-selected="false">Utilisateur</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" id="signalement-tab" data-toggle="tab" href="#signalement" role="tab"
+                   aria-controls="signalement"
+                   aria-selected="false">Signalement</a>
             </li>
         </ul>
         <div class="tab-content" id="myTabContent">
@@ -85,9 +90,9 @@
                         <th scope="col">Pseudo</th>
                         <th scope="col">Commentaires</th>
                         <th scope="col">Date d'ajout</th>
+                        <th scope="col">Signalé</th>
                         <th scope="col">Modifier</th>
-                        <th scope="col">Signaler</th>
-                        <th scope="col">Actions </th>
+                        <th scope="col">Actions</th>
                     </tr>
                     </thead>
                     <tbody>
@@ -95,22 +100,16 @@
                     while ($data = $result = $comments->fetch()) {
                         ?>
                         <tr>
-                        <th scope="row"><?= $data['pseudo']; ?></th>
-                        <td> <?= $data['content']; ?></td>
-                        <td> Posté le <?= $data['date_added']; ?></td>
-                        <td><a href="index.php?route=editComment&id=<?= $data['id']; ?>">Modifier</a></td>
-                        <td><a href="index.php?route=signalement&id=<?= $data['id']; ?>">Signaler</a></td>
+                            <th scope="row"><?= $data['pseudo']; ?></th>
+                            <td> <?= $data['content']; ?></td>
+                            <td> Posté le <?= $data['date_added']; ?></td>
+                            <td> Signalement :<?= $data['signalement']; ?></td>
+                            <td><a href="index.php?route=editComment&id=<?= $data['id']; ?>">Modifier</a></td>
+                            <td><a href="index.php?route=deSignal=<?= $data['id']; ?>">Enlever le signalement après modifications, ou vérifications.</a></td>
 
-                        <?php
-if (isset($data[1]))
-{
-                            ?>
-                            <td><a href="index.php?route=deSignal&id=<?= $data['id']; ?>">Retirer signalement</a></td>
-                            </tr>
 
-                            <?php
-                        }
-                        ?>
+                        </tr>
+
                         <?php
                     }
                     ?>
@@ -129,13 +128,12 @@ if (isset($data[1]))
                     </tr>
                     </thead>
                     <tbody>
-
-                        <tr>
-                            <th scope="row"><?= $_SESSION['pseudo']; ?></th>
-                            <td> <?= $_SESSION['email']; ?></td>
-                            <td> <?= $_SESSION['password']; ?></td>
-                            <td><a href="#">Modifier</a></td>
-                        </tr>
+                    <tr>
+                        <th scope="row"><?= $_SESSION['pseudo']; ?></th>
+                        <td> <?= $_SESSION['email']; ?></td>
+                        <td> <?= $_SESSION['password']; ?></td>
+                        <td><a href="#">Modifier</a></td>
+                    </tr>
                     </tbody>
                 </table>
             </div>

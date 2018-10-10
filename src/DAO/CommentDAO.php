@@ -4,7 +4,7 @@ class CommentDAO extends DAO
 {
     public function getCommentsFromArticle($id)
     {
-        $sql = 'SELECT id, pseudo, content, date_added FROM comment WHERE article_id = ?';
+        $sql = 'SELECT id, pseudo, content, date_added, signalement FROM comment WHERE article_id = ?';
         $result = $this->sql($sql, [$id]);
         return $result;
     }
@@ -32,7 +32,7 @@ class CommentDAO extends DAO
 
     public function getComments()
     {
-        $sql = 'SELECT id, pseudo, content, date_added FROM comment ORDER BY id DESC';
+        $sql = 'SELECT id, pseudo, content, date_added, signalement FROM comment ORDER BY id DESC';
         $result = $this->sql($sql);
         return $result;
     }
@@ -45,7 +45,7 @@ class CommentDAO extends DAO
     }
 
     public function afficherSignal($id){
-        $sql = 'SELECT id, pseudo, content, date_added FROM signalement WHERE article_id = ?';
+        $sql = 'SELECT id, signalement FROM comment WHERE article_id = ?';
         $result = $this->sql($sql, [$id]);
         return $result;
     }
