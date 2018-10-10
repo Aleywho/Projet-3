@@ -10,14 +10,15 @@ class MemberDAO extends DAO
     }
 
 
-    public function connectMember($pseudo, $password)
+    public function connectMember($pseudo, $password, $email)
     {
-        $sql = 'SELECT pseudo, id , password FROM member WHERE pseudo = ?';
+        $sql = 'SELECT pseudo, id , password, email FROM member WHERE pseudo = ?';
         $resultat = $this->sql($sql, [$pseudo]);
         $resultat = $resultat->fetch();
         var_dump($sql);
         var_dump($resultat);
         var_dump($password);
+        var_dump($email);
         $isPasswordCorrect = password_verify($password, $resultat['password']);
         var_dump($isPasswordCorrect);
         $data = [$resultat, $isPasswordCorrect];
@@ -29,7 +30,12 @@ public function afficherMember($pseudo, $password,$email)
     $sql = 'SELECT pseudo, password, email FROM member WHERE pseudo = ?';
     $this->sql($sql, [$pseudo, $password,$email]);
 }
+
+
+public function modifierEmail($email)
+{
+    $sql = "UPDATE member SET email = ? WHERE id= ? ";
+    $this->sql($sql, [$email]);
 }
-
-
+}
 

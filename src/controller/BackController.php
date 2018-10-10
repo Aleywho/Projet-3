@@ -12,15 +12,14 @@ class BackController
 {
     private function checkAdmin()
     {
-        if ($_SESSION['pseudo'] && ($_SESSION['password']))
-        {
+        if ($_SESSION['pseudo'] && ($_SESSION['password']) && ($_SESSION['email'])) {
             return true;
-        }
-        else{
+        } else {
             header('location: ../public/index.php?route=connect');
 
         }
     }
+
     public function home()
     {
         $article = new ArticleDAO();
@@ -28,12 +27,12 @@ class BackController
         $comment = new CommentDAO();
         $comments = $comment->getComments();
 
-        if (isset($article)&& isset($comment))
+        if (isset($article) && isset($comment))
 
-        if ($this->checkAdmin()) {
+            if ($this->checkAdmin()) {
 
-            require '../templates/admin_home.php';
-        }
+                require '../templates/admin_home.php';
+            }
     }
 
     public function postArticle($title, $content, $author)
@@ -42,73 +41,71 @@ class BackController
         $ArticleDAO = new ArticleDAO();
         $ArticleDAO->postArticle($title, $content, $author);
 
-        header ("location:../public/index.php?route=addArticle" );
+        header("location:../public/index.php?route=addArticle");
     }
+
     public function addArticle()
     {
-        if ($this->checkAdmin())
-        {
+        if ($this->checkAdmin()) {
             require '../templates/add_article.php';
-        }
-        else {
+        } else {
             header('location:../public/index.php?route=connect');
         }
     }
 
 //editer les commentaires
-    public function editComment ($newContent, $id)
+    public function editComment($newContent, $id)
     {
 
         $editDAO = new CommentDAO();
         $editDAO->editComment($newContent, $id);
         header("location:../public/index.php?route=editComment&id=$id");
     }
-    public function postEdit ()
+
+    public function postEdit()
     {
-        if ($this->checkAdmin())
-        {
+        if ($this->checkAdmin()) {
 
             require '../templates/edit_comment.php';
-        }
-        else {
+        } else {
             header('location:../public/index.php?route=connect');
         }
     }
+
     public function deleteArticle($id)
     {
-        if (isset ($_POST['delete']))
-        {
+        if (isset ($_POST['delete'])) {
             $delete = new ArticleDAO();
             $delete->deleteArticle($id);
             header("location:../public/index.php?route=deleteArticle&id=$id");
         }
 
     }
-    public function postDelete()
-        {
-            if ($this->checkAdmin())
-            {
 
-                require '../templates/delete_Article.php';
-            }
-            else {
-                header('location:../public/index.php?route=connect');
-            }
+    public function postDelete()
+    {
+        if ($this->checkAdmin()) {
+
+            require '../templates/delete_Article.php';
+        } else {
+            header('location:../public/index.php?route=connect');
         }
-    public function editArticle($content, $title, $id){
+    }
+
+    public function editArticle($content, $title, $id)
+    {
 
         $editArt = new ArticleDAO();
         $editArt->editArticle($content, $title, $id);
         header("location:../public/index.php?route=editArticle&id=$id");
     }
+
     public function postEditA()
     {
-        if ($this->checkAdmin())
-        {
+        if ($this->checkAdmin()) {
 
             require '../templates/edit_article.php';
-        }
-        else {
+        } else {
             header('location:../public/index.php?route=connect');
         }
     }
@@ -123,32 +120,30 @@ class BackController
 
         }
     }
-        public function designalCom()
+
+    public function designalCom()
     {
-        if ($this->checkAdmin())
-        {
+        if ($this->checkAdmin()) {
 
             require '../templates/deSignal.php ';
-        }
-        else {
+        } else {
             header('location:../public/index.php?route=connect');
         }
     }
-public function afficherSignal($id){
-        if (isset($_POST['submit']))
-        $signals = new CommentDAO();
-        $signal = $signals ->afficherSignal($id);
-        header ("location:../public/index.php?route=afficherSignal&id=$id");
-}
-public function signalVue(){
 
-    if ($this->checkAdmin())
+    public function modifierEmail($email)
     {
+        $memberDAO = new MemberDAO();
+        $memberDAO ->modifierEmail($email);
+        header("location: ../public/index.php?route=modifierEmail");
+    }
+public function postModif(){
+        if($this ->checkAdmin()){
 
-    }
-    else {
-        header('location:../public/index.php?route=connect');
-    }
+            require '../templates/modif_Email.php';
+        }else{
+            header('location:../public/index.php?route=connect');
+        }
 }
 public function deconnect(){
     $_SESSION = array();

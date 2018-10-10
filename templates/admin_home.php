@@ -50,11 +50,7 @@
                 <a class="nav-link" id="member-tab" data-toggle="tab" href="#member" role="tab" aria-controls="member"
                    aria-selected="false">Utilisateur</a>
             </li>
-            <li class="nav-item">
-                <a class="nav-link" id="signalement-tab" data-toggle="tab" href="#signalement" role="tab"
-                   aria-controls="signalement"
-                   aria-selected="false">Signalement</a>
-            </li>
+
         </ul>
         <div class="tab-content" id="myTabContent">
             <div class="tab-pane fade show active" id="articles" role="tabpanel" aria-labelledby="articles-tab">
@@ -103,9 +99,9 @@
                             <th scope="row"><?= $data['pseudo']; ?></th>
                             <td> <?= $data['content']; ?></td>
                             <td> Posté le <?= $data['date_added']; ?></td>
-                            <td> Signalement :<?= $data['signalement']; ?></td>
+                            <td> Signalement: <?= $data['signalement']; ?></td>
                             <td><a href="index.php?route=editComment&id=<?= $data['id']; ?>">Modifier</a></td>
-                            <td><a href="index.php?route=deSignal=<?= $data['id']; ?>">Enlever le signalement après modifications, ou vérifications.</a></td>
+                            <td><a href="index.php?route=deSignal&id=<?= $data['id']; ?>">Enlever le signalement après modifications, ou vérifications.</a></td>
 
 
                         </tr>
@@ -132,7 +128,7 @@
                         <th scope="row"><?= $_SESSION['pseudo']; ?></th>
                         <td> <?= $_SESSION['email']; ?></td>
                         <td> <?= $_SESSION['password']; ?></td>
-                        <td><a href="#">Modifier</a></td>
+                        <td><a href="#">Modifier email</a></td>
                     </tr>
                     </tbody>
                 </table>

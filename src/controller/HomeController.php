@@ -59,20 +59,22 @@ class HomeController
         require '../templates/connect.php';
     }
 
-    public function checkMember($pseudo, $password){
-        $this->check($pseudo, $password);
+    public function checkMember($pseudo, $password,$email){
+        $this->check($pseudo, $password,$email);
     }
-    private function check($pseudo, $password){
+    private function check($pseudo, $password,$email){
         var_dump("abcdefghijklmnopqrstuvwxyz");
         var_dump($pseudo);
         var_dump($password);
+        var_dump($email);
         $MemberDAO = new MemberDAO();
 
-        $data = $MemberDAO->connectMember($pseudo, $password);
+        $data = $MemberDAO->connectMember($pseudo, $password,$email);
         if ($data[1]) {
             $_SESSION['id'] = $data[0]['id'];
             $_SESSION['pseudo'] = $pseudo;
             $_SESSION['password'] = $password;
+            $_SESSION['email'] = $email;
 
 
             header("location:../public/index.php?route=admin");

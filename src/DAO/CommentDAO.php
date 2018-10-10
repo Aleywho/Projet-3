@@ -44,10 +44,4 @@ class CommentDAO extends DAO
         return $result;
     }
 
-    public function afficherSignal($id){
-        $sql = 'SELECT id, signalement FROM comment WHERE article_id = ?';
-        $result = $this->sql($sql, [$id]);
-        return $result;
-    }
-
 }

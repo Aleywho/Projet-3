@@ -84,7 +84,8 @@ class Router
                     if (isset($_POST['submit'])) {
                         $password = $_POST['password'];
                         $pseudo = $_POST['pseudo'];
-                        $this->homeController->checkMember($pseudo, $password);
+                        $email = $_POST['email'];
+                        $this->homeController->checkMember($pseudo, $password,$email);
                     } else {
 
                         $this->homeController->connect();
@@ -116,15 +117,12 @@ class Router
                     } else {
                         $this->backController->designalCom();
                     }
-                }elseif ($_GET['route'] == 'afficherSignal')
-                {
-                    if(isset($_POST['submit']))
-                    {
-                        $id = $_GET['id'];
-                        $this ->backController->afficherSignal($id);
-                    }else{
-                        $this ->backController->signalVue();
+                    }elseif ($_GET['route'] == 'modifierEmail'){
+                    if (isset ($_POST['submit'])){
+                        $email = ["email"];
+                        $this ->backController->modifierEmail( $email);
                     }
+
                 } else {
                     echo 'erreur';
                 }
