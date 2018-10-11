@@ -11,15 +11,15 @@ class CommentDAO extends DAO
 
     public function addComment($pseudo, $content, $id)
     {
-        $sql = 'INSERT INTO comment (pseudo, content, date_added, article_id) VALUES (?, ?, NOW(), ?) ';
+        $sql = 'INSERT INTO comment (pseudo, content, id,  date_added, article_id) VALUES (?, ?, NOW(), ?) ';
         $this->sql($sql, [$pseudo, $content, $id]);
     }
 
-    public function editComment($newContent, $id)
+    public function SupprCom($id)
     {
 
-        $sql = 'UPDATE comment SET content = ? WHERE id=?';
-        $this->sql($sql, [$newContent, $id]);
+        $sql = 'DELETE FROM comment WHERE id = ? ';
+        $this->sql($sql, [$id]);
 
     }
 

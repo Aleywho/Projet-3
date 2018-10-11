@@ -100,7 +100,7 @@
                             <td> <?= $data['content']; ?></td>
                             <td> Posté le <?= $data['date_added']; ?></td>
                             <td> Signalement: <?= $data['signalement']; ?></td>
-                            <td><a href="index.php?route=editComment&id=<?= $data['id']; ?>">Modifier</a></td>
+                            <td><a href="index.php?route=SupprCom&id=<?=$data['id'];?>">Supprimer</a></td>
                             <td><a href="index.php?route=deSignal&id=<?= $data['id']; ?>">Enlever le signalement après modifications, ou vérifications.</a></td>
 
 
@@ -128,7 +128,7 @@
                         <th scope="row"><?= $_SESSION['pseudo']; ?></th>
                         <td> <?= $_SESSION['email']; ?></td>
                         <td> <?= $_SESSION['password']; ?></td>
-                        <td><a href="#">Modifier email</a></td>
+                        <td><a href="index.php?route=modifierPass">Modifier mot de passe</a></td>
                     </tr>
                     </tbody>
                 </table>

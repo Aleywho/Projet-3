@@ -97,15 +97,15 @@
                     <form method='POST' action="../public/index.php?route=addComment&id=<?= $_GET['id']; ?>">
 
                         <div class="text-left">
-                            <label for="author">Auteur</label><br/>
-                            <input type="text" id="author" name="pseudo"/>
+                            <label for="pseudo">Auteur</label><br/>
+                            <input type="text" id="pseudo" name="pseudo"/>
                         </div>
                         <div>
                             <label for="content">Commentaire</label><br/>
                             <textarea id="content" name="content"></textarea>
                         </div>
                         <div>
-                            <input type="submit"/>
+                            <input type="submit" name="submit" value="submit" />
                         </div>
                     </form>
 
@@ -124,15 +124,15 @@
 
                             ?>
 
-                            <h4><?= $datas['pseudo']; ?></h4>
-                            <a href="index.php?route=editComment&id=<?= $_GET['id']; ?>">Modifier</a>
-                            <a href="index.php?route=signalement&id=<?= $datas['id']; ?>">Signaler</a>
+                            <a href="index.php?route=SupprCom&id=<?=$data['id'];?>">Supprimer</a>
+
                             <?php
                         }
                         ?>
+                        <h4><?= $datas['pseudo']; ?></h4>
                         <p><?= $datas['content']; ?></p>
                         <p>Posté le <?= $datas['date_added']; ?></p>
-
+                        <a href="index.php?route=signalement&id=<?= $datas['id']; ?>">Signaler</a>
                         <?php
                     }
                     ?>

@@ -24,11 +24,13 @@ class HomeController
 
     public function addComment($id, $content, $pseudo)
     {
-        $commentDAO = new CommentDAO();
-        $commentDAO->addComment($id, $content, $pseudo);
-        header("Location: ../public/index.php?route=article&id=$id");
-    }
+        if (isset ($_POST['submit'])){
+            $commentDAO = new CommentDAO();
+            $commentDAO->addComment($id, $content, $pseudo);
+            header("Location: ../public/index.php?route=addComment&id=$id");
+        }
 
+    }
     public function article($id)
     {
         $article = new ArticleDAO();

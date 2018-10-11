@@ -27,9 +27,11 @@ class Router
                     $this->homeController->article($id);
 
                 } elseif ($_GET['route'] == 'addComment') {
-                    $id = $_GET['id'];
-                    extract($_POST);
-                    $this->homeController->addComment($id, $content, $pseudo);
+                    if (isset($_POST['submit'])){
+                        $id = $_GET['id'];
+                        extract($_POST);
+                        $this->homeController->addComment($id, $content, $pseudo);
+                    }
 
                 } elseif ($_GET['route'] == 'register') {
                     $this->homeController->register();
@@ -43,13 +45,12 @@ class Router
                     }
                     $this->backController->addArticle();
 
-                } elseif ($_GET['route'] == 'editComment') {
+                } elseif ($_GET['route'] == 'SupprCom') {
                     if (isset ($_POST['submit'])) {
-                        $newContent = $_POST['newContent'];
                         $id = $_GET['id'];
-                        $this->backController->editComment($newContent, $id);
+                        $this->backController->SupprCom($id);
                     }
-                    $this->backController->postEdit();
+                    $this->backController->postSuppr();
 
                 } elseif ($_GET['route'] == 'editArticle') {
                     if (isset ($_POST['submit'])) {
@@ -61,7 +62,7 @@ class Router
                     }
                     $this->backController->postEditA();
                 } elseif ($_GET['route'] == 'deleteArticle') {
-                    if (isset ($_POST['delete'])) {
+                    if (isset ($_POST['submit'])) {
                         var_dump($_POST);
                         var_dump($_GET);
                         $id = $_GET['id'];
@@ -117,10 +118,10 @@ class Router
                     } else {
                         $this->backController->designalCom();
                     }
-                    }elseif ($_GET['route'] == 'modifierEmail'){
+                    }elseif ($_GET['route'] == 'modifierPass'){
                     if (isset ($_POST['submit'])){
-                        $email = ["email"];
-                        $this ->backController->modifierEmail( $email);
+                        $password = $_POST['password'];
+                        $this ->backController->modifierPass( $password);
                     }
 
                 } else {

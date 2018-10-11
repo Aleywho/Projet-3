@@ -53,20 +53,22 @@ class BackController
         }
     }
 
-//editer les commentaires
-    public function editComment($newContent, $id)
-    {
 
-        $editDAO = new CommentDAO();
-        $editDAO->editComment($newContent, $id);
-        header("location:../public/index.php?route=editComment&id=$id");
+    public function SupprCom($id)
+    {
+        if (isset($_POST['submit'])){
+            $editDAO = new CommentDAO();
+            $editDAO->SupprCom($id);
+            header("location:../public/index.php?route=SupprCom&id=$id");
+        }
+
     }
 
-    public function postEdit()
+    public function postSuppr()
     {
         if ($this->checkAdmin()) {
 
-            require '../templates/edit_comment.php';
+            require '../templates/Suppr_com.php';
         } else {
             header('location:../public/index.php?route=connect');
         }
@@ -74,7 +76,7 @@ class BackController
 
     public function deleteArticle($id)
     {
-        if (isset ($_POST['delete'])) {
+        if (isset ($_POST['submit'])) {
             $delete = new ArticleDAO();
             $delete->deleteArticle($id);
             header("location:../public/index.php?route=deleteArticle&id=$id");
@@ -131,16 +133,16 @@ class BackController
         }
     }
 
-    public function modifierEmail($email)
+    public function modifierPass($password)
     {
         $memberDAO = new MemberDAO();
-        $memberDAO ->modifierEmail($email);
-        header("location: ../public/index.php?route=modifierEmail");
+        $memberDAO ->modifierPass($password);
+        header("location: ../public/index.php?route=modifierPassword");
     }
 public function postModif(){
         if($this ->checkAdmin()){
 
-            require '../templates/modif_Email.php';
+            require '../templates/modif_Pass.php.php';
         }else{
             header('location:../public/index.php?route=connect');
         }
