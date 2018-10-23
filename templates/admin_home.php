@@ -71,7 +71,7 @@
                             <th scope="row"><?= $data['id'] ?></th>
                             <td> <?= $data['title'] ?></td>
                             <td><a href="index.php?route=editArticle&id=<?= $data['id']; ?>">Modifier</a></td>
-                            <td><a href="index.php?route=deleteArticle&id=<?= $data['id']; ?>">Supprimer</a></td>
+                            <td><a href="index.php?route=deleteArticleCom&id=<?=$data['id'];?>">Supprimer</a></td>
                         </tr>
                         <?php
                     }

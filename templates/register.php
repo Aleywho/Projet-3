@@ -17,7 +17,6 @@
 
                     <button type="Submit" name="submit"class="btn btn-primary"></button>
 
-                    <button type="Submit" name="submit"class="btn btn-primary"></button>
 
                     <a href="index.php">Retour à l'accueil</a>
                     <a href="index.php?route=connect">Déjà connecté? </a>

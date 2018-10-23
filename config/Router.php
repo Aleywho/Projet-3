@@ -27,9 +27,10 @@ class Router
                     $this->homeController->article($id);
 
                 } elseif ($_GET['route'] == 'addComment') {
-                    if (isset($_POST['submit'])){
+                    if (isset ($_POST['submit'])) {
                         $id = $_GET['id'];
                         extract($_POST);
+                        var_dump($_GET);
                         $this->homeController->addComment($id, $content, $pseudo);
                     }
 
@@ -61,13 +62,13 @@ class Router
                         $this->backController->editArticle($content, $title, $id);
                     }
                     $this->backController->postEditA();
-                } elseif ($_GET['route'] == 'deleteArticle') {
+                } elseif ($_GET['route'] == 'deleteArticleCom') {
                     if (isset ($_POST['submit'])) {
                         var_dump($_POST);
                         var_dump($_GET);
                         $id = $_GET['id'];
 
-                        $this->backController->deleteArticle($id);
+                        $this->backController->deleteArticleCom($id);
                     }
                     $this->backController->postDelete();
 
@@ -120,8 +121,12 @@ class Router
                     }
                     }elseif ($_GET['route'] == 'modifierPass'){
                     if (isset ($_POST['submit'])){
-                        $password = $_POST['password'];
-                        $this ->backController->modifierPass( $password);
+                        $newpassword = password_hash($_POST['newpassword'], PASSWORD_DEFAULT);
+                        $pseudo= $_POST ['pseudo'];
+                        var_dump($_POST);
+                            $this ->backController->modifierPass($newpassword, $pseudo);
+                    }else{
+                        $this->backController->postModif();
                     }
 
                 } else {

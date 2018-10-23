@@ -64,7 +64,6 @@
         <h2>Mes Articles</h2>
         <?php
         if (isset($_SESSION['pseudo'])) {
-            var_dump($_SESSION);
 
             ?>
             <a href="index.php?route=addArticle">Pour ajouter un article </a>

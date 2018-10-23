@@ -27,7 +27,6 @@ class BackController
         $comment = new CommentDAO();
         $comments = $comment->getComments();
 
-        if (isset($article) && isset($comment))
 
             if ($this->checkAdmin()) {
 
@@ -52,17 +51,23 @@ class BackController
             header('location:../public/index.php?route=connect');
         }
     }
-
-
-    public function SupprCom($id)
+    public function deleteArticleCom($id)
     {
-        if (isset($_POST['submit'])){
-            $editDAO = new CommentDAO();
-            $editDAO->SupprCom($id);
-            header("location:../public/index.php?route=SupprCom&id=$id");
+        if (isset ($_POST['submit'])) {
+            $delete = new ArticleDAO();
+            $delete->deleteArticleCom($id);
+
+            header("location:../public/index.php?route=deleteArticleCom&id=$id");
         }
 
     }
+    public function SupprCom($id)
+    {
+        $editDAO = new CommentDAO();
+        $editDAO->SupprCom($id);
+        header("location:../public/index.php?route=SupprCom&id=$id");
+    }
+
 
     public function postSuppr()
     {
@@ -74,15 +79,7 @@ class BackController
         }
     }
 
-    public function deleteArticle($id)
-    {
-        if (isset ($_POST['submit'])) {
-            $delete = new ArticleDAO();
-            $delete->deleteArticle($id);
-            header("location:../public/index.php?route=deleteArticle&id=$id");
-        }
 
-    }
 
     public function postDelete()
     {
@@ -133,16 +130,19 @@ class BackController
         }
     }
 
-    public function modifierPass($password)
+    public function modifierPass($newpassword, $pseudo)
     {
-        $memberDAO = new MemberDAO();
-        $memberDAO ->modifierPass($password);
-        header("location: ../public/index.php?route=modifierPassword");
+        if(isset($_POST['submit'])){
+            $MemberDAO = new MemberDAO();
+            $MemberDAO ->modifierPass($newpassword, $pseudo);
+            if (isset($newpassword))
+            header("location: ../public/index.php?route=modifierPass");
+        }
     }
 public function postModif(){
         if($this ->checkAdmin()){
 
-            require '../templates/modif_Pass.php.php';
+            require '../templates/modif_Pass.php';
         }else{
             header('location:../public/index.php?route=connect');
         }

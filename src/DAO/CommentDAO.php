@@ -4,15 +4,16 @@ class CommentDAO extends DAO
 {
     public function getCommentsFromArticle($id)
     {
-        $sql = 'SELECT id, pseudo, content, date_added, signalement FROM comment WHERE article_id = ?';
+        $sql = 'SELECT id, pseudo, content, date_added, signalement FROM comment WHERE id_article = ?';
         $result = $this->sql($sql, [$id]);
         return $result;
     }
 
     public function addComment($pseudo, $content, $id)
     {
-        $sql = 'INSERT INTO comment (pseudo, content, id,  date_added, article_id) VALUES (?, ?, NOW(), ?) ';
-        $this->sql($sql, [$pseudo, $content, $id]);
+        $sql = 'INSERT INTO comment (pseudo, content,id,  date_added) VALUES (?, ?, ,? , NOW())';
+        $result = $this->sql($sql, [$pseudo, $content, $id]);
+        return $result;
     }
 
     public function SupprCom($id)

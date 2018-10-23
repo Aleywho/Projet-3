@@ -62,11 +62,13 @@
 
 
         $data = $articles->fetch();
+        {
+
 
         ?>
         <?php
         if (isset($_SESSION['pseudo'])) {
-            var_dump($_SESSION);
+
 
             ?>
             <a href="index.php?route=editArticle&id=<?= $_GET['id']; ?>">Modifier</a>
@@ -75,7 +77,7 @@
         ?>
         <?php
         if (isset($_SESSION['pseudo'])) {
-            var_dump($_SESSION);
+
             ?>
             <a href="index.php?route=deleteArticle&id=<?= $_GET['id']; ?>">Supprimer</a>
             <?php
@@ -86,41 +88,41 @@
             <p><?= $data['content']; ?></p>
             <p><?= $data['author']; ?></p>
             <p>Créé le <?= $data['date_added']; ?></p>
-            <div>
-                <a href="index.php">Retour à l'accueil</a>
-                <div id="comments" class="text-left" style="margin-left: 50px">
-
-
-                    <h3>Poster votre commentaire</h3>
-
-
-                    <form method='POST' action="../public/index.php?route=addComment&id=<?= $_GET['id']; ?>">
-
-                        <div class="text-left">
-                            <label for="pseudo">Auteur</label><br/>
-                            <input type="text" id="pseudo" name="pseudo"/>
-                        </div>
-                        <div>
-                            <label for="content">Commentaire</label><br/>
-                            <textarea id="content" name="content"></textarea>
-                        </div>
-                        <div>
-                            <input type="submit" name="submit" value="submit" />
-                        </div>
-                    </form>
-
-
-                    <h3>Commentaires</h3>
-
 
                     <?php
+                    }
+                    ?>
+
+            <h2>Commentaires</h2>
+
+            <form method='POST' action="../public/index.php?route=addComment&id=<?=$_GET['id'];?>">
+                <div>
+                    <label for="author">Auteur</label><br />
+                    <input type="text" id="author" name="author" />
+                </div>
+                <div>
+                    <label for="comment">Commentaire</label><br />
+                    <textarea id="comment" name="comment"></textarea>
+                </div>
+                <div>
+                    <input type="submit" />
+                </div>
+            </form>
+
+
+
+            <?php
 
 
                     while ($datas = $comments->fetch()) {
                         ?>
+
+                        <h4><?= $datas['pseudo']; ?></h4>
+                        <p><?= $datas['content']; ?></p>
+                        <p>Posté le <?= $datas['date_added']; ?></p>
+                        <a href="index.php?route=signalement&id=<?= $datas['id']; ?>">Signaler</a>
                         <?php
                         if (isset($_SESSION['pseudo'])) {
-                            var_dump($_SESSION);
 
                             ?>
 
@@ -129,10 +131,10 @@
                             <?php
                         }
                         ?>
-                        <h4><?= $datas['pseudo']; ?></h4>
-                        <p><?= $datas['content']; ?></p>
-                        <p>Posté le <?= $datas['date_added']; ?></p>
-                        <a href="index.php?route=signalement&id=<?= $datas['id']; ?>">Signaler</a>
+
+
+
+
                         <?php
                     }
                     ?>
