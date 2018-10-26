@@ -32,10 +32,10 @@ public function afficherMember($pseudo, $password,$email)
 }
 
 
-public function modifierPass($newpassword, $pseudo)
+public function editPass($password, $pseudo)
 {
-    $sql = "UPDATE member SET password = ? WHERE pseudo = ? ";
-    $this->sql($sql, [$pseudo,$newpassword]);
+    $sql = "UPDATE member SET password = ? WHERE pseudo= ? ";
+    $this->sql($sql, [$pseudo,$password]);
 
 }
 }

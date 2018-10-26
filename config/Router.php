@@ -30,8 +30,7 @@ class Router
                     if (isset ($_POST['submit'])) {
                         $id = $_GET['id'];
                         extract($_POST);
-                        var_dump($_GET);
-                        $this->homeController->addComment($id, $content, $pseudo);
+                        $this->homeController->addComment($id, $pseudo, $content);
                     }
 
                 } elseif ($_GET['route'] == 'register') {
@@ -62,13 +61,13 @@ class Router
                         $this->backController->editArticle($content, $title, $id);
                     }
                     $this->backController->postEditA();
-                } elseif ($_GET['route'] == 'deleteArticleCom') {
+                } elseif ($_GET['route'] == 'deleteArticle') {
                     if (isset ($_POST['submit'])) {
                         var_dump($_POST);
                         var_dump($_GET);
                         $id = $_GET['id'];
 
-                        $this->backController->deleteArticleCom($id);
+                        $this->backController->deleteArticle($id);
                     }
                     $this->backController->postDelete();
 
@@ -119,12 +118,13 @@ class Router
                     } else {
                         $this->backController->designalCom();
                     }
-                    }elseif ($_GET['route'] == 'modifierPass'){
+                    }elseif ($_GET['route'] == 'editPass'){
                     if (isset ($_POST['submit'])){
-                        $newpassword = password_hash($_POST['newpassword'], PASSWORD_DEFAULT);
+                        $password = password_hash($_POST['password'], PASSWORD_DEFAULT);
                         $pseudo= $_POST ['pseudo'];
+
                         var_dump($_POST);
-                            $this ->backController->modifierPass($newpassword, $pseudo);
+                            $this ->backController->editPass($password, $pseudo);
                     }else{
                         $this->backController->postModif();
                     }

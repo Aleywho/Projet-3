@@ -51,13 +51,13 @@ class BackController
             header('location:../public/index.php?route=connect');
         }
     }
-    public function deleteArticleCom($id)
+    public function deleteArticle($id)
     {
         if (isset ($_POST['submit'])) {
             $delete = new ArticleDAO();
-            $delete->deleteArticleCom($id);
+            $delete->deleteArticle($id);
 
-            header("location:../public/index.php?route=deleteArticleCom&id=$id");
+            header("location:../public/index.php?route=deleteArticle&id=$id");
         }
 
     }
@@ -130,16 +130,16 @@ class BackController
         }
     }
 
-    public function modifierPass($newpassword, $pseudo)
+    public function editPass($password, $pseudo)
     {
         if(isset($_POST['submit'])){
             $MemberDAO = new MemberDAO();
-            $MemberDAO ->modifierPass($newpassword, $pseudo);
-            if (isset($newpassword))
-            header("location: ../public/index.php?route=modifierPass");
+            $MemberDAO ->editPass($password, $pseudo);
+            header("location: ../public/index.php?route=editPass");
         }
     }
-public function postModif(){
+public function postModif()
+{
         if($this ->checkAdmin()){
 
             require '../templates/modif_Pass.php';

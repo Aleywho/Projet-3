@@ -1,6 +1,6 @@
 <h2>Modifier Password</h2>
 
-<form method='POST' action="../public/index.php?route=modifierPass">
+<form method='POST' action="../public/index.php?route=editPass">
     <div class="text-left">
         <div class="form-group">
             <label for="pseudo">Pseudo</label>
@@ -8,8 +8,8 @@
         </div>
 
             <div class="form-group">
-                <label for="newpassword">Password</label>
-                <input type="password" name="newpassword" class="form-control" required/>
+                <label for="password">Password</label>
+                <input type="password" name="password" class="form-control" required/>
 
                 <input type="submit" name="submit"/>
         <a href="index.php?route=admin">Retour à la page d'admin</a>

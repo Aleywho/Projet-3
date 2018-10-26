@@ -97,12 +97,12 @@
 
             <form method='POST' action="../public/index.php?route=addComment&id=<?=$_GET['id'];?>">
                 <div>
-                    <label for="author">Auteur</label><br />
-                    <input type="text" id="author" name="author" />
+                    <label for="pseudo">Auteur</label><br />
+                    <input type="text" id="pseudo" name="pseudo" />
                 </div>
                 <div>
-                    <label for="comment">Commentaire</label><br />
-                    <textarea id="comment" name="comment"></textarea>
+                    <label for="content">Commentaire</label><br />
+                    <textarea id="content" name="content"> </textarea>
                 </div>
                 <div>
                     <input type="submit" />

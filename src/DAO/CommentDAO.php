@@ -9,11 +9,10 @@ class CommentDAO extends DAO
         return $result;
     }
 
-    public function addComment($pseudo, $content, $id)
+    public function addComment($id, $pseudo,  $content)
     {
-        $sql = 'INSERT INTO comment (pseudo, content,id,  date_added) VALUES (?, ?, ,? , NOW())';
-        $result = $this->sql($sql, [$pseudo, $content, $id]);
-        return $result;
+        $sql = 'INSERT INTO comment (id, pseudo, content, date_added) VALUES (?, ?, NOW(), ?) ';
+        $this->sql($sql, [$pseudo, $content, $id]);
     }
 
     public function SupprCom($id)
@@ -21,7 +20,6 @@ class CommentDAO extends DAO
 
         $sql = 'DELETE FROM comment WHERE id = ? ';
         $this->sql($sql, [$id]);
-
     }
 
     public function signalement($id)

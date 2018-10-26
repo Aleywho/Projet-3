@@ -10,14 +10,14 @@ class ArticleDAO extends DAO
         return $result;
     }
 
-    public function getArticle($idArt)
+    public function getArticle($id)
     {
         $sql = 'SELECT id, title, content, author, date_added FROM article WHERE id = ?';
-        $result = $this->sql($sql, [$idArt]);
+        $result = $this->sql($sql, [$id]);
         return $result;
     }
-            public function postArticle($title, $content, $author){
-             $sql = 'INSERT INTO article (title, content, author, date_added ) VALUES (?, ?,?, NOW()) ';
+    public function postArticle($title, $content, $author){
+        $sql = 'INSERT INTO article (title, content, author, date_added ) VALUES (?, ?,?, NOW()) ';
         $this->sql($sql, [$title, $content, $author]);
 
     }
@@ -25,9 +25,14 @@ class ArticleDAO extends DAO
         $sql = 'UPDATE article SET content = ? , title = ? WHERE id=?';
         $this ->sql($sql, [$content, $title, $id]);
     }
-    public function deleteArticleCom ($id){
-        $sql = 'DELETE FROM article.id, comment.article_id WHERE article.id.article_id = comment.id  ';
+    public function deleteArticle ($id){
+        $sql = 'DELETE FROM article WHERE id = ? ';
         $this ->sql($sql, [$id]);
 
+    }
+    public function deleteArtCom($id)
+    {
+        $sql = 'DELETE FROM article.id, comment.article_id WHERE article.id.article_id = comment.id  ';
+        $this ->sql($sql, [$id]);
     }
 }
