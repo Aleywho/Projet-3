@@ -11,8 +11,9 @@ class CommentDAO extends DAO
 
     public function addComment($id, $pseudo,  $content)
     {
-        $sql = 'INSERT INTO comment (id, pseudo, content, date_added) VALUES (?, ?, NOW(), ?) ';
-        $this->sql($sql, [$pseudo, $content, $id]);
+        $sql = 'INSERT INTO comment (pseudo, content, signalement , id_article, date_added) VALUES (?,?,?,?,NOW()) ';
+        $result = $this->sql($sql, [$id, $pseudo, $content]);
+ return $result;
     }
 
     public function SupprCom($id)
@@ -31,7 +32,7 @@ class CommentDAO extends DAO
 
     public function getComments()
     {
-        $sql = 'SELECT id, pseudo, content, date_added, signalement FROM comment ORDER BY id DESC';
+        $sql = 'SELECT id, pseudo, content, date_added, id_article, signalement FROM comment ORDER BY id DESC';
         $result = $this->sql($sql);
         return $result;
     }

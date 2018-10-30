@@ -9,6 +9,6 @@
         <textarea id="content" name="content"></textarea>
 
     <input type="submit" name="submit"/>
-<a href="index.php?route=admin">Retour à la page d'admin</a>
+<a href="index.php?route=article&id=<?=$_GET['id'];?>">Retour à la page d'admin</a>
 
 
