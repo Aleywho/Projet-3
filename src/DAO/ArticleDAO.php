@@ -10,29 +10,30 @@ class ArticleDAO extends DAO
         return $result;
     }
 
-    public function getArticle($id)
+    public function getArticle($idArt)
     {
         $sql = 'SELECT id, title, content, author, date_added FROM article WHERE id = ?';
-        $result = $this->sql($sql, [$id]);
+        $result = $this->sql($sql, [$idArt]);
         return $result;
     }
-    public function postArticle($title, $content, $author){
+
+    public function postArticle($title, $content, $author)
+    {
         $sql = 'INSERT INTO article (title, content, author, date_added ) VALUES (?, ?,?, NOW()) ';
         $this->sql($sql, [$title, $content, $author]);
 
     }
-    public function editArticle($content, $title, $id){
-        $sql = 'UPDATE article SET content = ? , title = ? WHERE id=?';
-        $this ->sql($sql, [$content, $title, $id]);
-    }
-    public function deleteArticle ($id){
-        $sql = 'DELETE FROM article WHERE id = ? ';
-        $this ->sql($sql, [$id]);
 
-    }
-    public function deleteArtCom($id)
+    public function editArticle($content, $title, $id)
     {
-        $sql = 'DELETE FROM article.id, comment.article_id WHERE article.id.article_id = comment.id  ';
-        $this ->sql($sql, [$id]);
+        $sql = 'UPDATE article SET content = ? , title = ? WHERE id=?';
+        $this->sql($sql, [$content, $title, $id]);
+    }
+
+    public function deleteArticle($id)
+    {
+        $sql = 'DELETE FROM article WHERE id = ? ';
+        $this->sql($sql, [$id]);
+
     }
 }

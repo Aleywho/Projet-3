@@ -29,7 +29,8 @@ class Router
                 } elseif ($_GET['route'] == 'addComment') {
                     if (isset ($_POST['submit'])) {
                         $id = $_GET['id'];
-                        extract($_POST);
+                        $content = $_POST['content'];
+                        $pseudo = $_POST['pseudo'];
                         $this->homeController->addComment($id, $pseudo, $content);
                     }
 
@@ -120,10 +121,8 @@ class Router
                     }
                     }elseif ($_GET['route'] == 'editPass'){
                     if (isset ($_POST['submit'])){
-                        $password = password_hash($_POST['password'], PASSWORD_DEFAULT);
                         $pseudo= $_POST ['pseudo'];
-
-                        var_dump($_POST);
+                        $password = password_hash($_POST['password'], PASSWORD_DEFAULT);
                             $this ->backController->editPass($password, $pseudo);
                     }else{
                         $this->backController->postModif();

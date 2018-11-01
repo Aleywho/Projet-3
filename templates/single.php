@@ -89,7 +89,7 @@
             <p><?= $data['author']; ?></p>
             <p>Créé le <?= $data['date_added']; ?></p>
 
-                    <?php
+            <?php
                     }
                     ?>
 
@@ -102,15 +102,12 @@
                 </div>
                 <div>
                     <label for="content">Commentaire</label><br />
-                    <textarea id="content" name="content"> </textarea>
+                    <textarea id="content" name="content"></textarea>
                 </div>
                 <div>
-                    <input type="submit" />
+                    <input type="submit" name = "submit" />
                 </div>
             </form>
-
-
-
             <?php
 
 
@@ -126,7 +123,7 @@
 
                             ?>
 
-                            <a href="index.php?route=SupprCom&id=<?=$data['id'];?>">Supprimer</a>
+                            <a href="index.php?route=SupprCom&id=<?=$datas['id'];?>">Supprimer</a>
 
                             <?php
                         }

@@ -11,9 +11,9 @@ class CommentDAO extends DAO
 
     public function addComment($id, $pseudo,  $content)
     {
-        $sql = 'INSERT INTO comment (pseudo, content, signalement , id_article, date_added) VALUES (?,?,?,?,NOW()) ';
-        $result = $this->sql($sql, [$id, $pseudo, $content]);
- return $result;
+        $sql = 'INSERT INTO comment (pseudo, content, date_added, id_article) VALUES (?,?,NOW(),?) ';
+        $result = $this->sql($sql,[$id, $pseudo, $content]);
+        return $result;
     }
 
     public function SupprCom($id)
