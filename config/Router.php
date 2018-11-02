@@ -136,6 +136,7 @@ class Router
             }
         } catch (\Exception $e) {
             echo 'Erreur';
+            var_dump($e);
         }
     }
 }

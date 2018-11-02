@@ -35,7 +35,7 @@ public function afficherMember($pseudo, $password,$email)
 public function editPass($password, $pseudo)
 {
     $sql = "UPDATE member SET password = ? WHERE pseudo= ? ";
-    $this->sql($sql, [$pseudo,$password]);
+    $this->sql($sql, [$password,$pseudo]);
 
 }
 }

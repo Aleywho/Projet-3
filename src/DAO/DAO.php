@@ -33,6 +33,7 @@ function sql($sql, $parameters = null)
 {
 
     if ($parameters) {
+        var_dump($parameters);
         $result = $this->checkConnection()->prepare($sql);
         $result->execute($parameters);
         echo ("okay");
