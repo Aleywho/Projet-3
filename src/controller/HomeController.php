@@ -33,14 +33,14 @@ class HomeController
         require '../templates/single.php';
     }
 
-    public function addComment($id,$pseudo,$content)
+    public function addComment($id, $pseudo, $content)
     {
 
         $commentDAO = new CommentDAO();
-        $commentDAO->addComment($id,$pseudo,$content);
-        /*header("Location: ../public/index.php?route=article&id=$id");*/
+        $commentDAO->addComment($id, $pseudo, $content);
+        header("Location: ../public/index.php?route=article&id=$id");
 
-}
+    }
 
     public function addMember($pseudo, $password, $email)
     {

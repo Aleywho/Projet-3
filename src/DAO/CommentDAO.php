@@ -19,7 +19,7 @@ class CommentDAO extends DAO
     public function SupprCom($id)
     {
 
-        $sql = 'DELETE FROM comment WHERE id = ? ';
+        $sql = 'DELETE FROM comment WHERE id= ? ';
         $this->sql($sql, [$id]);
     }
 

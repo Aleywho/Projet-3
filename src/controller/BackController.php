@@ -28,10 +28,10 @@ class BackController
         $comments = $comment->getComments();
 
 
-            if ($this->checkAdmin()) {
+        if ($this->checkAdmin()) {
 
-                require '../templates/admin_home.php';
-            }
+            require '../templates/admin_home.php';
+        }
     }
 
     public function postArticle($title, $content, $author)
@@ -51,6 +51,7 @@ class BackController
             header('location:../public/index.php?route=connect');
         }
     }
+
     public function deleteArticle($id)
     {
         if (isset ($_POST['submit'])) {
@@ -61,6 +62,7 @@ class BackController
         }
 
     }
+
     public function SupprCom($id)
     {
         $editDAO = new CommentDAO();
@@ -78,7 +80,6 @@ class BackController
             header('location:../public/index.php?route=connect');
         }
     }
-
 
 
     public function postDelete()
@@ -132,28 +133,31 @@ class BackController
 
     public function editPass($password, $pseudo)
     {
-        if(isset($_POST['submit'])){
+        if (isset($_POST['submit'])) {
             $MemberDAO = new MemberDAO();
-            $MemberDAO ->editPass($password, $pseudo);
-            header("location: ../public/index.php?route=editPass");
+            $MemberDAO->editPass($password, $pseudo);
+            header("location: ../public/index.php?route=deconnect");
         }
     }
-public function postModif()
-{
-        if($this ->checkAdmin()){
+
+    public function postModif()
+    {
+        if ($this->checkAdmin()) {
 
             require '../templates/modif_Pass.php';
-        }else{
+        } else {
             header('location:../public/index.php?route=connect');
         }
-}
-public function deconnect(){
-    $_SESSION = array();
-    session_destroy();
-    setcookie('login', '');
-    setcookie('password', '');
-    header("location:../public/index.php");
-
-
-}
     }
+
+    public function deconnect()
+    {
+        $_SESSION = array();
+        session_destroy();
+        setcookie('login', '');
+        setcookie('password', '');
+        header("location:../public/index.php");
+
+
+    }
+}

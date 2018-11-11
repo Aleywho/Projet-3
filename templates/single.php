@@ -90,66 +90,64 @@
             <p>Créé le <?= $data['date_added']; ?></p>
 
             <?php
-                    }
-                    ?>
+            }
+            ?>
 
             <h2>Commentaires</h2>
 
-            <form method='POST' action="../public/index.php?route=addComment&id=<?=$_GET['id'];?>">
+            <form method='POST' action="../public/index.php?route=addComment&id=<?= $_GET['id']; ?>">
                 <div>
-                    <label for="pseudo">Auteur</label><br />
-                    <input type="text" id="pseudo" name="pseudo" />
+                    <label for="pseudo">Auteur</label><br/>
+                    <input type="text" id="pseudo" name="pseudo"/>
                 </div>
                 <div>
-                    <label for="content">Commentaire</label><br />
+                    <label for="content">Commentaire</label><br/>
                     <textarea id="content" name="content"></textarea>
                 </div>
                 <div>
-                    <input type="submit" name = "submit" />
+                    <input type="submit" name="submit"/>
                 </div>
             </form>
             <?php
 
 
-                    while ($datas = $comments->fetch()) {
-                        ?>
+            while ($datas = $comments->fetch()) {
+                ?>
 
-                        <h4><?= $datas['pseudo']; ?></h4>
-                        <p><?= $datas['content']; ?></p>
-                        <p>Posté le <?= $datas['date_added']; ?></p>
-                        <a href="index.php?route=signalement&id=<?= $datas['id']; ?>">Signaler</a>
-                        <?php
-                        if (isset($_SESSION['pseudo'])) {
+                <h4><?= $datas['pseudo']; ?></h4>
+                <p><?= $datas['content']; ?></p>
+                <p>Posté le <?= $datas['date_added']; ?></p>
+                <a href="index.php?route=signalement&id=<?= $datas['id']; ?>">Signaler</a>
+                <?php
+                if (isset($_SESSION['pseudo'])) {
 
-                            ?>
-
-                            <a href="index.php?route=SupprCom&id=<?=$datas['id'];?>">Supprimer</a>
-
-                            <?php
-                        }
-                        ?>
-
-
-
-
-                        <?php
-                    }
                     ?>
 
+                    <a href="index.php?route=SupprCom&id=<?= $datas['id']; ?>">Supprimer</a>
 
-                </div>
-            </div><!-- /.container -->
+                    <?php
+                }
+                ?>
 
 
-            <!-- Bootstrap core JavaScript
-            ================================================== -->
-            <!-- Placed at the end of the document so the pages load faster -->
-            <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
-                    integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
-                    crossorigin="anonymous"></script>
-            <script src="http://getbootstrap.com/assets/js/vendor/popper.min.js"></script>
-            <script src="http://getbootstrap.com/dist/js/bootstrap.min.js"></script>
-            <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
-            <script src="http://getbootstrap.com/assets/js/ie10-viewport-bug-workaround.js"></script>
+                <?php
+            }
+            ?>
+
+
+        </div>
+    </div><!-- /.container -->
+
+
+    <!-- Bootstrap core JavaScript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+            integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+            crossorigin="anonymous"></script>
+    <script src="http://getbootstrap.com/assets/js/vendor/popper.min.js"></script>
+    <script src="http://getbootstrap.com/dist/js/bootstrap.min.js"></script>
+    <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
+    <script src="http://getbootstrap.com/assets/js/ie10-viewport-bug-workaround.js"></script>
 </body>
 </html>
