@@ -1,8 +1,5 @@
-<h3>Ecrire un article</h3>
-<?php
+ <h3>Ecrire un article</h3>
 
-
-?>
 <form method='POST' action="../public/index.php?route=addArticle">
 
     <div class="text-left">
