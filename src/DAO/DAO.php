@@ -33,11 +33,9 @@ function sql($sql, $parameters = null)
 {
 
     if ($parameters) {
-        var_dump($parameters);
         $result = $this->checkConnection()->prepare($sql);
         $result->execute($parameters);
         echo ("okay");
-        var_dump($parameters);
         return $result;
     } else {
         $result = $this->checkConnection()->query($sql);

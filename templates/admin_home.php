@@ -87,6 +87,7 @@
                         <th scope="col">Commentaires</th>
                         <th scope="col">Date d'ajout</th>
                         <th scope="col">Signalé</th>
+                        <th scope="col">Articles</th>
                         <th scope="col">Modifier</th>
                         <th scope="col">Actions</th>
                     </tr>
@@ -100,6 +101,7 @@
                             <td> <?= $data['content']; ?></td>
                             <td> Posté le <?= $data['date_added']; ?></td>
                             <td> Signalement: <?= $data['signalement']; ?></td>
+                            <td> Articles: <?=$data['id_article'];?> </td>
                             <td><a href="index.php?route=SupprCom&id=<?=$data['id'];?>">Supprimer</a></td>
                             <td><a href="index.php?route=deSignal&id=<?= $data['id']; ?>">Enlever le signalement après modifications, ou vérifications.</a></td>
 
