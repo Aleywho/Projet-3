@@ -1,27 +1,6 @@
 
-<!DOCTYPE html>
-<html lang="fr">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <meta name="description" content="Mon super blog">
-    <meta name="author" content="Alexandre">
-    <link rel="icon" href="http://getbootstrap.com/favicon.ico">
+<?php require('header.php'); ?>
 
-    <title>Mon blog</title>
-
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"
-          integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
-    <!-- Custom styles for this template -->
-    <link href="../public/css/starter-template.css" rel="stylesheet">
-</head>
-
-<body>
-
-<div class="container">
-
-    <div class="starter-template">
-        <h1>Ma page d'admin</h1>
         <h2>Supprimer l'article</h2>
 <form method='POST' action="../public/index.php?route=deleteArticle&id=<?=$_GET['id'];?>">
 
@@ -36,5 +15,4 @@
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"
             integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy"
             crossorigin="anonymous"></script>
-</body>
-</html>
+    <?php require('footer.php'); ?>

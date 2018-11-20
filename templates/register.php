@@ -22,9 +22,6 @@
 
     <div class="starter-template">
         <h1>Ma page d'admin</h1>
-        <p class="lead">En construction</p>
-
-
 
 
         <h1>S'inscrire</h1>
