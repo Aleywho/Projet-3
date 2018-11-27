@@ -59,13 +59,13 @@
         <div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
             <div class="carousel-inner">
                 <div class="carousel-item active">
-                    <img class="d-block w-100" src="http://lorempicsum.com/futurama/627/300/1" alt="First slide">
+                    <img class="d-block w-100" src="../public/image/alaska%20(1).jpg" alt="First slide">
                 </div>
                 <div class="carousel-item">
-                    <img class="d-block w-100" src="http://lorempicsum.com/futurama/627/300/2" alt="Second slide">
+                    <img class="d-block w-100" src="../public/image/1433-les-aurores-boreales-strient-le-ciel-1200x650-1.jpg" alt="Second slide">
                 </div>
                 <div class="carousel-item">
-                    <img class="d-block w-100" src="http://lorempicsum.com/futurama/627/300/3" alt="Third slide">
+                    <img class="d-block w-100" src="../public/image/Screenshot_44.png" alt="Third slide">
                 </div>
             </div>
             <a class="carousel-control-prev" href="#carouselExampleControls" role="button" data-slide="prev">
