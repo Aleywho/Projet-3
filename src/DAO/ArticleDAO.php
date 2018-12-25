@@ -6,7 +6,7 @@ class ArticleDAO extends DAO
 {
     public function getArticles()
     {
-        $sql = 'SELECT id, title, content, author, date_added FROM article ORDER BY id DESC';
+        $sql = 'SELECT id, title, content, author, date_added FROM article ORDER BY id ASC';
         $result = $this->sql($sql);
         return $result;
     }
