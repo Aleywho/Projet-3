@@ -55,8 +55,8 @@
 <div class="container">
 
     <div class="starter-template">
-        <h1>Mon blog</h1>
-        <p class="lead">En construction</p>
+        <h1>Billet simple pour l'Alaska</h1>
+
 
         <?php
 

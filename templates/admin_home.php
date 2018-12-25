@@ -29,8 +29,6 @@
 <div class="container">
 
     <div class="starter-template">
-        <h1>Ma page d'admin</h1>
-        <p class="lead">En construction</p>
 
 
         <h2>Administrer les articles</h2>
@@ -71,7 +69,7 @@
                             <th scope="row"><?= $data['id'] ?></th>
                             <td> <?= $data['title'] ?></td>
                             <td><a href="index.php?route=editArticle&id=<?= $data['id']; ?>">Modifier</a></td>
-                            <td><a href="index.php?route=deleteArticle&id=<?=$data['id'];?>">Supprimer</a></td>
+                            <td><a href="index.php?route=deleteArticle&id=<?= $data['id']; ?>">Supprimer</a></td>
                         </tr>
                         <?php
                     }
@@ -101,9 +99,10 @@
                             <td> <?= $data['content']; ?></td>
                             <td> Posté le <?= $data['date_added']; ?></td>
                             <td> Signalement: <?= $data['signalement']; ?></td>
-                            <td> Articles: <?=$data['id_article'];?> </td>
-                            <td><a href="index.php?route=SupprCom&id=<?=$data['id'];?>">Supprimer</a></td>
-                            <td><a href="index.php?route=deSignal&id=<?= $data['id']; ?>">Enlever le signalement après modifications, ou vérifications.</a></td>
+                            <td> Articles: <?= $data['id_article']; ?> </td>
+                            <td><a href="index.php?route=SupprCom&id=<?= $data['id']; ?>">Supprimer</a></td>
+                            <td><a href="index.php?route=deSignal&id=<?= $data['id']; ?>">Enlever le signalement après
+                                    modifications, ou vérifications.</a></td>
 
 
                         </tr>

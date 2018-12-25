@@ -16,10 +16,10 @@
         <input type="text" id="author" name="author"/>
 
     </div>
-    <button type="submit" name = "submit" class="btn btn-primary">Valider</button>
+    <button type="submit" name="submit" class="btn btn-primary">Valider</button>
 
 
 </form>
 <script src="https://cloud.tinymce.com/stable/tinymce.min.js"></script>
-<script>tinymce.init({ selector:'textarea' });</script>
+<script>tinymce.init({selector: 'textarea'});</script>
 <?php require('footer.php'); ?>

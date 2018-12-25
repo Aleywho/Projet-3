@@ -1,4 +1,5 @@
-<?php 
+<?php
+
 namespace App\src\DAO;
 class CommentDAO extends DAO
 {
@@ -9,10 +10,10 @@ class CommentDAO extends DAO
         return $result;
     }
 
-    public function addComment($id, $pseudo,  $content)
+    public function addComment($id, $pseudo, $content)
     {
         $sql = 'INSERT INTO comment (pseudo, content, date_added, id_article) VALUES (?,?,NOW(),?) ';
-        $result = $this->sql($sql,[$pseudo, $content, $id]);
+        $result = $this->sql($sql, [$pseudo, $content, $id]);
         return $result;
     }
 

@@ -87,7 +87,7 @@ class Router
                         $password = $_POST['password'];
                         $pseudo = $_POST['pseudo'];
                         $email = $_POST['email'];
-                        $this->homeController->checkMember($pseudo, $password,$email);
+                        $this->homeController->checkMember($pseudo, $password, $email);
                     } else {
 
                         $this->homeController->connect();
@@ -112,19 +112,19 @@ class Router
                         $this->homeController->signalcoment();
                     }
 
-                    }elseif ($_GET['route'] == 'deSignal') {
+                } elseif ($_GET['route'] == 'deSignal') {
                     if (isset ($_POST['submit'])) {
                         $id = $_GET['id'];
                         $this->backController->deSignal($id);
                     } else {
                         $this->backController->designalCom();
                     }
-                    }elseif ($_GET['route'] == 'editPass'){
-                    if (isset ($_POST['submit'])){
-                        $pseudo= $_POST ['pseudo'];
+                } elseif ($_GET['route'] == 'editPass') {
+                    if (isset ($_POST['submit'])) {
+                        $pseudo = $_POST ['pseudo'];
                         $password = password_hash($_POST['password'], PASSWORD_DEFAULT);
-                            $this ->backController->editPass($password, $pseudo);
-                    }else{
+                        $this->backController->editPass($password, $pseudo);
+                    } else {
                         $this->backController->postModif();
                     }
 

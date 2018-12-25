@@ -15,6 +15,7 @@ class HomeController
         session_start();
     }
 
+    /* Affichage des articles et commentaires */
     public function index()
     {
         $article = new ArticleDAO();
@@ -33,6 +34,7 @@ class HomeController
         require '../templates/single.php';
     }
 
+    /* Ajout de commentaires */
     public function addComment($id, $pseudo, $content)
     {
 
@@ -42,6 +44,7 @@ class HomeController
 
     }
 
+    /* Création de membre. Inscription dans la base de donnée */
     public function addMember($pseudo, $password, $email)
     {
         $admin_page = new MemberDAO();
@@ -56,13 +59,14 @@ class HomeController
 
     }
 
-
+    /*Lien pour la connection de l'admin */
     public function connect()
     {
 
         require '../templates/connect.php';
     }
 
+    /*Verification du pseudo, mail, et mot de passe. */
     public function checkMember($pseudo, $password, $email)
     {
         $this->check($pseudo, $password, $email);
@@ -91,6 +95,7 @@ class HomeController
         }
     }
 
+    /* Signalement des commentaires. */
     public function signalement($id)
     {
         if (isset ($_POST['submit'])) {

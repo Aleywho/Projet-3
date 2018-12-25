@@ -19,7 +19,8 @@
 
 <nav class="navbar navbar-expand-md navbar-dark bg-dark fixed-top">
     <a class="navbar-brand" href="index.php">Mon blog</a>
-    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExampleDefault" aria-controls="navbarsExampleDefault" aria-expanded="false" aria-label="Toggle navigation">
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExampleDefault"
+            aria-controls="navbarsExampleDefault" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
     </button>
 
@@ -32,17 +33,17 @@
                 <a class="nav-link" href="index.php">Articles</a>
             <li class="nav-item">
                 <a class="nav-link" href="index.php?route=register">S'inscrire</a>
-            <?php
-            if ((isset($_SESSION['pseudo'])) && ($_SESSION['pseudo'] != ''))
+                <?php
+                if ((isset($_SESSION['pseudo'])) && ($_SESSION['pseudo'] != ''))
                 {
-                    ?>
+                ?>
             <li class="nav-item">
                 <a class="nav-link" href="index.php?route=deconnect">Se déconnecter</a>
-                    <?php
+                <?php
                 }
                 ?>
             <li class="nav-item">
-            <a class="nav-link"  href="index.php?route=admin">Ma page d'admin</a>
+                <a class="nav-link" href="index.php?route=admin">Ma page d'admin</a>
 
                 <form class="form-inline my-2 my-lg-0">
                     <input class="form-control mr-sm-2" type="text" placeholder="Rechercher" aria-label="Search">
@@ -54,18 +55,22 @@
 <div class="container">
 
     <div class="starter-template">
-        <h1>Mon blog</h1>
+        <h1>Billet simple pour l'Alaska</h1>
 
         <div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
             <div class="carousel-inner">
                 <div class="carousel-item active">
-                    <img class="d-block w-100" src="../public/image/alaska%20(1).jpg" alt="First slide">
+                    <img class="d-block w-100" src="../public/image/alaska%20(1).jpg" width="1400" height="400"
+                         alt="First slide">
                 </div>
                 <div class="carousel-item">
-                    <img class="d-block w-100" src="../public/image/1433-les-aurores-boreales-strient-le-ciel-1200x650-1.jpg" alt="Second slide">
+                    <img class="d-block w-100"
+                         src="../public/image/1433-les-aurores-boreales-strient-le-ciel-1200x650-1.jpg" width="1200"
+                         height="400" alt="Second slide">
                 </div>
                 <div class="carousel-item">
-                    <img class="d-block w-100" src="../public/image/Screenshot_44.png" alt="Third slide">
+                    <img class="d-block w-100" src="../public/image/80472fa866c28387f301ceaf0a42080e-alaska.jpg"
+                         width="1200" height="400" alt="Third slide">
                 </div>
             </div>
             <a class="carousel-control-prev" href="#carouselExampleControls" role="button" data-slide="prev">
@@ -88,15 +93,14 @@
         }
         ?>
         <?php
-        while( $data = $articles->fetch())
-        {
+        while ($data = $articles->fetch()) {
             ?>
 
             <div class="text-left">
-                <h2><a href="index.php?route=article&id=<?= $data['id'];?>"><?= $data['title'];?></a></h2>
-                <p><?= $data['content'];?></p>
-                <p><?= $data['author'];?></p>
-                <p>Créé le <?= $data['date_added'];?></p>
+                <h2><a href="index.php?route=article&id=<?= $data['id']; ?>"><?= $data['title']; ?></a></h2>
+                <p><?= $data['content']; ?></p>
+                <p><?= $data['author']; ?></p>
+                <p>Créé le <?= $data['date_added']; ?></p>
             </div>
             <br>
             <?php
@@ -111,11 +115,12 @@
 </div>
 
 
-
 <!-- Bootstrap core JavaScript
 ================================================== -->
 <!-- Placed at the end of the document so the pages load faster -->
-<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+        integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+        crossorigin="anonymous"></script>
 <script src="http://getbootstrap.com/assets/js/vendor/popper.min.js"></script>
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"></script>
 <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->

@@ -1,4 +1,5 @@
 <?php
+
 namespace App\src\DAO;
 
 class MemberDAO extends DAO
@@ -25,18 +26,19 @@ class MemberDAO extends DAO
         return $data;
 
     }
-public function afficherMember($pseudo, $password,$email)
-{
-    $sql = 'SELECT pseudo, password, email FROM member WHERE pseudo = ?';
-    $this->sql($sql, [$pseudo, $password,$email]);
-}
+
+    public function afficherMember($pseudo, $password, $email)
+    {
+        $sql = 'SELECT pseudo, password, email FROM member WHERE pseudo = ?';
+        $this->sql($sql, [$pseudo, $password, $email]);
+    }
 
 
-public function editPass($password, $pseudo)
-{
-    $sql = "UPDATE member SET password = ? WHERE pseudo= ? ";
-    $this->sql($sql, [$password,$pseudo]);
+    public function editPass($password, $pseudo)
+    {
+        $sql = "UPDATE member SET password = ? WHERE pseudo= ? ";
+        $this->sql($sql, [$password, $pseudo]);
 
-}
+    }
 }
 

@@ -10,6 +10,7 @@ use App\src\DAO\MemberDAO;
 
 class BackController
 {
+    /* Verification des logins/MDP */
     private function checkAdmin()
     {
         if ($_SESSION['pseudo'] && ($_SESSION['password']) && ($_SESSION['email'])) {
@@ -20,6 +21,7 @@ class BackController
         }
     }
 
+    /*Affichage des articles et comments pour la page d'admin*/
     public function home()
     {
         $article = new ArticleDAO();
@@ -34,6 +36,7 @@ class BackController
         }
     }
 
+    /* Ajout d'article, possible que pour les admins*/
     public function postArticle($title, $content, $author)
     {
 
@@ -52,6 +55,7 @@ class BackController
         }
     }
 
+    /* Suppression d'article et commentaires et commentaires associés.*/
     public function deleteArticle($id)
     {
         if (isset ($_POST['submit'])) {
@@ -92,6 +96,7 @@ class BackController
         }
     }
 
+    /* Modification d'un article */
     public function editArticle($content, $title, $id)
     {
 
@@ -110,6 +115,7 @@ class BackController
         }
     }
 
+    /* Retirer un signalement d'un commentaires après relecture.*/
     public function deSignal($id)
     {
         if (isset ($_POST['submit'])) {
@@ -131,6 +137,7 @@ class BackController
         }
     }
 
+    /* Changement de MDP */
     public function editPass($password, $pseudo)
     {
         if (isset($_POST['submit'])) {
@@ -150,6 +157,7 @@ class BackController
         }
     }
 
+    /* Déconnecter la session de l'admin*/
     public function deconnect()
     {
         $_SESSION = array();
